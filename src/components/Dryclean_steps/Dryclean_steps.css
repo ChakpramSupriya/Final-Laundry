@@ -1,0 +1,84 @@
+.steps{
+    width: 100%;
+    height: 600px;
+    background-color: rgba(144, 178, 232, 0.81);;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+.photo{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    row-gap: 20px;
+    img{
+        width: 300px;
+        height: 200px;
+        
+    }
+}
+.steps-order{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 250px;
+    padding: 20px;
+}
+.steps-order-par{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 160px;
+}
+.radio{
+    padding: 30px;
+    font-size: 30px;
+    display: flex;
+    column-gap: 280px;
+    align-items: center;
+    input{
+        width: 40px;
+        height: 30px;
+    }  
+}
+
+.step-item{
+    @apply relative flex flex-col justify-center items-center w-36;
+}
+.step-item:not(:first-child):before{
+    @apply content-[''] bg-slate-200 absolute w-full h-[3px] right-2/4 top-1/3 -translate-y-2/4;
+}
+.step{
+    @apply w-10 h-10 flex items-center justify-center z-10 relative bg-slate-700 rounded-full font-semibold text-white;
+}
+.steps-btn{
+    @apply bg-blue-400 hover:bg-blue-500 rounded-xl text-gray-100 font-medium px-7 py-4;
+}
+.active .step{
+    @apply bg-sky-600;
+}
+.complete .step{
+    @apply bg-green-600;
+}
+.complete p{
+    @apply text-white;
+}
+.complete:not(:first-child):before,
+.active:not(:first-child):before{
+    @apply bg-green-600;
+}
+.click{
+    /* margin-top: 50px; */
+    width: 580px;
+    height: 60px;
+    background-color: rgb(142, 159, 235);
+    border-radius: 10px;
+    border: 2px solid gray;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+.click:hover{
+    background-color: rgb(114, 131, 244);
+}

@@ -1,0 +1,144 @@
+[
+    {
+        "groupName": "CASUAL WEAR",
+        "id": "group1",
+        "data": [
+            {
+                "id": 1,
+                "casual":"T-SHIRT ",
+                "money":20
+            },
+            {
+                "id": 2,
+
+                "casual":"SHIRT ",
+                "money":20
+            },
+            {
+                "id": 3,
+
+                "casual":"LONGSLEEVE",
+                "money":30
+            },
+            {
+                "id": 4,
+
+                "casual":"UNIFORM ",
+                "money":80
+            },
+            {
+                "id": 5,
+                "casual":"BLAZER",
+                "money":100
+            }
+        ]
+    },
+    {
+        "groupName": "OUTER WEAR",
+        "id": "group2",
+        "data": [
+            {
+                "id": 1,
+                "casual":"COATS ",
+                "money":220
+            },
+            {
+                "id": 2,
+
+                "casual":"JACKETS",
+                "money":180
+            },
+            {
+                "id": 3,
+
+                "casual":"RAINCOATS",
+                "money":150
+            },
+            {
+                "id": 4,
+
+                "casual":"VESTS",
+                "money":160
+            }
+           
+        ]
+    },
+    {
+        "groupName": "PANTS",
+        "id": "group3",
+        "data": [
+            {
+                "id": 1,
+                "casual":"FORMAL PANTS ",
+                "money":60
+            },
+            {
+                "id": 2,
+
+                "casual":"JEANS",
+                "money":80
+            },
+            {
+                "id": 3,
+
+                "casual":"SHORT PANTS",
+                "money":40
+            },
+            {
+                "id": 4,
+
+                "casual":"BUTTONS",
+                "money":70
+            }
+           
+        ]
+    },
+    {
+        "groupName": "BED PROPERTIES",
+        "id": "group4",
+        "data": [
+            {
+                "id": 1,
+                "casual":"BED-SHEETS ",
+                "money":100
+            },
+            {
+                "id": 2,
+
+                "casual":"PILLOW COVERS",
+                "money":50
+            },
+            {
+                "id": 3,
+
+                "casual":"CURTAINS",
+                "money":60
+            },
+            {
+                "id": 4,
+
+                "casual":"BED NETS",
+                "money":120
+            }
+           
+        ]
+    },
+    {
+        "groupName": "OTHERS MORE",
+        "id": "group5",
+        "data": [
+            {
+                "id": 1,
+                "casual":"SHOES ",
+                "money":100
+            },
+            {
+                "id": 2,
+
+                "casual":"BAGS",
+                "money":150
+            }
+        ]
+    }
+    
+]

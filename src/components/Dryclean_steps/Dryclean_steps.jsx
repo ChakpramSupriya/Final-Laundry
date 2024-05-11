@@ -1,0 +1,94 @@
+import React, { useState } from "react";
+import Header from "../Header";
+import "./Dryclean_steps.css";
+import { useNavigate } from "react-router-dom";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
+import { useEffect } from "react";
+
+export default function Dryclean_steps() {
+  const navigate = useNavigate();
+
+  const steps = ["Places order", "Pick up", "Drop off"];
+  const [currentStep, setCurrentStep] = useState(1);
+  const [complete, setComplete] = useState(false);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+  return (
+    <>
+      <Header />
+      <div className=" w-full  bg-[rgba(144,178,232,0.81)] pt-20">
+        <button
+          type="button"
+          onClick={() => {
+            navigate("/dry-clean-book");
+          }}
+        >
+          <FaArrowCircleLeft className="w-32 h-8" />
+        </button>
+      </div>
+      <div className="steps h-screen">
+        <h2>STEPS FOR DRY CLEANING SERVICES</h2>
+        <div className="photo">
+          <img className="photo-img" src="placeorder.png" alt="" />
+          <img className="photo-img" src="pickup.svg" alt="" />
+          <img className="photo-img" src="drop.svg" alt="" />
+        </div>
+        <div className="steps-order">
+          <h4>PLACED ORDER</h4>
+          <h4>PICK UP </h4>
+          <h4>DROP OFF</h4>
+        </div>
+        <div className="steps-order-par">
+          <p>Placed your order in seconds.</p>
+          <p>We pickup the clothes.</p>
+          <p>Deliver your clothes.</p>
+        </div>
+        {/* 
+        <div className="flex justify-between m-6">
+          {steps?.map((step, i) => (
+            <div
+              key={i}
+              className={`step-item ${currentStep === i + 1 && "active"} ${
+                (i + 1 < currentStep || complete) && "complete"
+              }`}
+            >
+              <div className="step">
+                {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
+              </div>
+              <p className="text-gray-500">{step}</p>
+            </div>
+          ))}
+        </div>
+
+        {!complete && (
+          <button
+            type="button"
+            className="steps-btn"
+            onClick={() => {
+              currentStep === steps.length
+                ? setComplete(true)
+                : setCurrentStep((prev) => prev + 1);
+            }}
+          >
+            {currentStep === steps.length ? "Finish" : "Next"}
+          </button>
+        )} */}
+
+        <button
+          type="button"
+          className="click bg-blue-300 hover:bg-blue-500 mt-5"
+          onClick={() => {
+            navigate("/dryclean_itemorder");
+          }}
+        >
+          ORDER
+        </button>
+      </div>
+    </>
+  );
+}

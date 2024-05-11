@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radio{
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+  input{
+      font-size: 18px;
+      width: 40px;
+      height: 30px;
+      padding-top: 10px;
+  }
+  label{
+    font-size: 20px;
+}
+  
+}

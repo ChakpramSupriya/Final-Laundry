@@ -1,0 +1,40 @@
+.view-services{
+    background-color: rgb(216, 217, 221);
+}
+
+.view-cleaning{
+    width: 100%;
+    padding-top: 80px;
+    margin-left: 5%;
+    margin-right: 5%;
+    column-gap: 20px;
+}
+h1{
+    font-size: 28px;
+}
+
+.image{
+    margin-top: 20px;
+    display: flex;
+    row-gap: 40px;
+    column-gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    div > img{
+        width: 300px;
+        height: 260px;
+    }
+}
+.view-assistance{
+    width: 100%;
+    padding-top: 80px;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.services-title{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: 300;
+}

@@ -1,0 +1,32 @@
+.prices{
+    background-color: rgb(216, 217, 221);
+    height: 120vh;
+}
+
+.price{
+    padding-top: 60px;
+    /* background-color: rgba(144, 178, 232, 0.81); */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center;
+    flex-direction: column; */
+    min-height: calc(80svh);
+    h1 {
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+    }
+    p{
+        font-size: 15px;
+    }
+    h2{
+        font-size: 22px;
+    }
+}
+.span{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  
+}
