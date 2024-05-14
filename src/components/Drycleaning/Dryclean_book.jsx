@@ -29,7 +29,7 @@ export default function Dryclean_book() {
         <button
           type="button"
           onClick={() => {
-            navigate("/home");
+            navigate("/dry_clean_steps");
           }}
         >
           <FaArrowCircleLeft className="w-32 h-8" />
@@ -63,34 +63,39 @@ export default function Dryclean_book() {
             />
           </div>
 
-          <div className="inputs-message">
-            <MdEmail className="icon" />
-            <input type="text" placeholder="Your message" />
-          </div>
-
           <div className="inputs">
             <p className="text-2xl">District:</p>
             <select value={district} onChange={handleDistrictChange}>
               <option value="">Select an option</option>
               <option value="Imphal East">Imphal East</option>
               <option value="Imphal West">Imphal West</option>
+              <option value="Bishnupur">Bishnupur</option>
             </select>
+          </div>
+
+          <div className="inputs">
+            Pincode:
+            <input type="pincode" placeholder="Pincode" />
+          </div>
+          <div className="inputs-message">
+            <MdEmail className="icon" />
+            <input type="text" placeholder="Your message" />
           </div>
         </div>
 
-        <div className="radio">
+        {/* <div className="radio">
           <input type="radio" name="service" value="sweeper" />
           <label htmlFor="sweeper">Laundry</label>
 
           <input type="radio" name="service" value="care taking" />
           <label htmlFor="care taking">Ironing</label>
-        </div>
+        </div> */}
 
         <button
           type="button"
-          className="click bg-blue-300 hover:bg-blue-500 w-33 mt-6"
+          className="click bg-blue-300 hover:bg-blue-500 w-33 mt-4"
           onClick={() => {
-            navigate("/dry_clean_steps");
+            navigate("/dryclean_itemorder");
           }}
         >
           Book Now

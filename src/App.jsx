@@ -21,6 +21,11 @@ import Cardpage from "./components/Cardpage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ApplyNow from "./components/ApplyNow/ApplyNow";
+import LoginRegister from "./components/LoginRegister";
+import MyOrder from "./components/MyOrder";
+import DryCleaningApply from "./components/ApplyNow/DrycleaningApply";
+import AssistanceApply from "./components/ApplyNow/AssistanceApply";
+
 function App() {
   return (
     <>
@@ -28,20 +33,21 @@ function App() {
       <MantineProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />} />
+            {/* <Route path="/" element={<Login />} /> */}
+            <Route path="/" element={<LoginRegister />} />
             <Route path="/home" element={<Home />}>
               <Route index element={<HomeComponent />} />
               {/* <Route path="dry-clean-book" element={<Dryclean_book />} /> */}
             </Route>
-            <Route path="/dry-clean-book" element={<Dryclean_book />} />
             <Route path="/dry_clean_steps" element={<Dryclean_steps />} />
+            <Route path="/dry-clean-book" element={<Dryclean_book />} />
 
             <Route
               path="/dryclean_itemorder"
               element={<Dryclean_itemorder />}
             />
-            <Route path="/cardpage" element={<Cardpage />} />
-            <Route path="/debitcard" element={<Debitcard />} />
+            {/* <Route path="/cardpage" element={<Cardpage />} />
+            <Route path="/debitcard" element={<Debitcard />} /> */}
             <Route path="/payment-success" element={<Paymentsuccess />} />
             <Route path="/assistance-book" element={<Assistance_book />} />
             <Route
@@ -54,7 +60,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
+            <Route path="/myorder" element={<MyOrder />} />
+          </Routes>
+
+          {/* Apply */}
+          <Routes>
             <Route path="/applynow" element={<ApplyNow />} />
+            <Route path="/drycleanapply" element={<DryCleaningApply />} />
+            <Route path="/assistanceapply" element={<AssistanceApply />} />
           </Routes>
         </BrowserRouter>
       </MantineProvider>

@@ -41,10 +41,12 @@
 //   console.log("run at server : 3000");
 // });
 
-const express = require("express");
-const Razorpay = require("razorpay");
-const cors = require("cors");
-
+import express from "express";
+import Razorpay from "razorpay";
+import mongodb from "./config/db.js";
+import cors from "cors";
+import drycleanRoutes from "./routes/dryclean.routes.js";
+import assistanceRoutes from "./routes/assistance.route.js";
 const app = express();
 const PORT = 3000;
 
@@ -91,6 +93,10 @@ app.post("/order/validate", async (req, res) => {
     paymentId: razorpay_payment_id,
   });
 });
+
+app.use("/dryclean", drycleanRoutes);
+app.use("/assistance", assistanceRoutes);
+mongodb();
 
 app.listen(3000, () => {
   console.log("Listening on port", 3000);

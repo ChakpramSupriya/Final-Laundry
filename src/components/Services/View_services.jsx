@@ -23,7 +23,7 @@ export default function View_services() {
             <div>
               <img src="./service_lan.png" alt="" />
               <button
-                className="bg-blue-300 w-20 h-10 hover:bg-blue-500 mt-3 rounded-xl"
+                className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
                 onClick={() => {
                   navigate("/dry-clean-book");
                 }}
@@ -34,7 +34,7 @@ export default function View_services() {
             <div>
               <img src="./iron.jpg" alt="" />
               <button
-                className="bg-blue-300 w-20 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
                 onClick={() => {
                   navigate("/dry-clean-book");
                 }}
@@ -50,7 +50,7 @@ export default function View_services() {
               <div>
                 <img src="./sweeper.png" alt="" />
                 <button
-                  className="bg-blue-300 w-20 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md "
                   onClick={() => {
                     navigate("/assistance-book");
                   }}
@@ -61,7 +61,7 @@ export default function View_services() {
               <div>
                 <img src="./dishwash.png" alt="" />
                 <button
-                  className="bg-blue-300 w-28 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md text-[13px]"
                   onClick={() => {
                     navigate("/assistance-book");
                   }}
@@ -72,7 +72,7 @@ export default function View_services() {
               <div>
                 <img src="./plumber.png" alt="" />
                 <button
-                  className="bg-blue-300 w-20 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
                   onClick={() => {
                     navigate("/assistance-book");
                   }}
@@ -83,7 +83,7 @@ export default function View_services() {
               <div>
                 <img src="./cook.png" alt="" />
                 <button
-                  className="bg-blue-300 w-20 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
                   onClick={() => {
                     navigate("/assistance-book");
                   }}
@@ -94,7 +94,7 @@ export default function View_services() {
               <div>
                 <img src="./care.png" alt="" />
                 <button
-                  className="bg-blue-300 w-28 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md "
                   onClick={() => {
                     navigate("/assistance-book");
                   }}
@@ -106,7 +106,7 @@ export default function View_services() {
                 <img src="./toiletclean.jpg" alt="" />
                 <button
                   type="button"
-                  className="bg-blue-300 w-28 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md text-[13px]"
                   onClick={() => {
                     navigate("/assistance-book");
                   }}
@@ -117,7 +117,7 @@ export default function View_services() {
               <div>
                 <img src="./more.jpg" alt="" />
                 <button
-                  className="bg-blue-300 w-20 h-10 hover:bg-blue-500 mt-3 rounded-xl "
+                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
                   onClick={() => {
                     navigate("/assistance-book");
                   }}

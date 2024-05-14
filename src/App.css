@@ -107,15 +107,18 @@ a {
   padding-top: 22px;
   align-items: center;
   justify-content: space-evenly;
-  column-gap: 30px;
+  column-gap: 20px;
 }
 .nav > ul > li {
-  font-size: 22px;
+  font-size: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
 
 .navbar.active{
+  color: blue;
+}
+.navbarlogo.active{
   color: blue;
 }
 @media  (max-width: 576px)
@@ -284,18 +287,18 @@ a {
     height: 320px;
   }
   ul > li{
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight:400;
     display: flex;
     align-items: center;
     list-style-type: none;
   }
   .footer_title{
-    font-size: 24px;
+    font-size: 18px;
     padding-top: 100px;
   }
   p{
-    font-size: 20px;
+    font-size: 15px;
     font-weight:400;
   }
 }

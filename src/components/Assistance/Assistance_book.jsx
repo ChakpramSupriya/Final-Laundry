@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../Header";
 import "./Assistance_book.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaAddressCard } from "react-icons/fa6";
@@ -51,6 +51,10 @@ export default function Assistance_book() {
       behavior: "smooth",
     });
   }, []);
+  const [district, setDistrict] = useState("");
+  function handleDistrictChange(event) {
+    setDistrict(event.target.value);
+  }
   return (
     <>
       <Header />
@@ -92,17 +96,44 @@ export default function Assistance_book() {
               maxLength={10}
             />
           </div>
+          <div className="inputs">
+            <p>District:</p>
+            <select
+              value={district}
+              onChange={handleDistrictChange}
+              style={{
+                border: "1.5px solid gray",
+                margin: "10px",
+                borderRadius: "10px",
+                width: "400px",
+                padding: "10px 20px",
+              }}
+            >
+              <option value="">Select an option</option>
+              <option value="Imphal East">Imphal East</option>
+              <option value="Imphal West">Imphal West</option>
+              <option value="Bishnupur">Bishnupur</option>
+            </select>
+          </div>
+
+          <div className="inputs">
+            Pincode:
+            <input type="pincode" placeholder="Pincode" />
+          </div>
 
           <div className="inputs-message">
             <MdEmail className="icon" />
             <input type="text" placeholder="Your message" />
           </div>
-          <div className="inputs ml-7">
+          <div className="inputs">
+            {" "}
+            Date:
             <input type="date" placeholder=" Your Date:" />
           </div>
 
           <div className="inputs ">
-            <input type="time" placeholder="Your Time:" />
+            <label for="time">Time:</label>
+            <input type="time" name="time" placeholder="Your Time:" />
           </div>
 
           {/* <DateTimePicker
@@ -124,8 +155,8 @@ export default function Assistance_book() {
             />
           </div>
           <div>
-            <label className="text-center" for="services">
-              Service
+            <label className="text-center pl-4" for="services">
+              Service:
             </label>
             <select
               id="services"

@@ -25,7 +25,7 @@ export default function Dryclean_steps() {
         <button
           type="button"
           onClick={() => {
-            navigate("/dry-clean-book");
+            navigate("/home");
           }}
         >
           <FaArrowCircleLeft className="w-32 h-8" />
@@ -83,7 +83,7 @@ export default function Dryclean_steps() {
           type="button"
           className="click bg-blue-300 hover:bg-blue-500 mt-5"
           onClick={() => {
-            navigate("/dryclean_itemorder");
+            navigate("/dry-clean-book");
           }}
         >
           ORDER

@@ -2,89 +2,88 @@ import React, { useState } from "react";
 import Header from "../Header";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
+import { useDisclosure } from "@mantine/hooks";
+import { Modal, Button } from "@mantine/core";
+import Swal from "sweetalert2";
+
 import { MultiSelect } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 
 export default function Dryclean_itemorder() {
+  const [opened, { open, close }] = useDisclosure(false);
+
   const rateData = [
     {
       type: "Shirt",
-      rate: 20,
+      rate: 10,
     },
     {
       type: "Longsleeve",
-      rate: 30,
+      rate: 20,
     },
     {
       type: "Uniform",
-      rate: 80,
-    },
-    {
-      type: "Blazer",
-      rate: 100,
-    },
-    {
-      type: "Coats",
-      rate: 220,
-    },
-    {
-      type: "Jackets",
-      rate: 180,
-    },
-    {
-      type: "Raincoats",
-      rate: 150,
-    },
-    {
-      type: "Vests",
-      rate: 160,
-    },
-    {
-      type: "Formal pants",
-      rate: 60,
-    },
-    {
-      type: "Jeans",
-      rate: 80,
-    },
-    {
-      type: "Shorts pants",
-      rate: 40,
-    },
-    {
-      type: "Buttons",
-      rate: 70,
-    },
-    {
-      type: "Betsheets",
-      rate: 100,
-    },
-    {
-      type: "Pillow covers",
       rate: 50,
     },
     {
-      type: "Curtains",
-      rate: 60,
+      type: "Blazer",
+      rate: 80,
     },
     {
-      type: "Bednets",
-      rate: 120,
-    },
-    {
-      type: "Shoes",
+      type: "Coats",
       rate: 100,
     },
     {
+      type: "Jackets",
+      rate: 120,
+    },
+    {
+      type: "Raincoats",
+      rate: 120,
+    },
+    {
+      type: "Vests",
+      rate: 120,
+    },
+    {
+      type: "Formal pants",
+      rate: 30,
+    },
+    {
+      type: "Jeans",
+      rate: 50,
+    },
+    {
+      type: "Shorts pants",
+      rate: 20,
+    },
+    {
+      type: "Buttons",
+      rate: 60,
+    },
+    {
+      type: "Betsheets",
+      rate: 50,
+    },
+    {
+      type: "Pillow covers",
+      rate: 20,
+    },
+    {
+      type: "Curtains",
+      rate: 40,
+    },
+    {
+      type: "Bednets",
+      rate: 80,
+    },
+    {
+      type: "Shoes",
+      rate: 80,
+    },
+    {
       type: "Bags",
-      rate: 150,
+      rate: 50,
     },
   ];
   const [rate, setRate] = useState(0);
@@ -167,7 +166,7 @@ export default function Dryclean_itemorder() {
     let prices = [];
     setRate(0);
     for (let product = 0; product < value.length; product++) {
-      let price = rateData
+      const price = rateData
         .map((r) => {
           if (value[product] === r.type) {
             return r.rate;
@@ -192,6 +191,15 @@ export default function Dryclean_itemorder() {
     setRate(prices.reduce((acc, r) => acc + r, 0));
   };
   console.log(rate);
+
+  const alertOk = () => {
+    Swal.fire({
+      title: "Good job!",
+      text: "Thank you for your service",
+      icon: "success",
+    });
+    navigate("/myorder");
+  };
   return (
     <>
       <Header />
@@ -208,14 +216,6 @@ export default function Dryclean_itemorder() {
       <div className="bg-[rgba(144,178,232,0.81)] h-screen w-full flex justify-center flex-col items-center ">
         <div className="bg-white mt-6 w-[40em] h-fit p-8   flex justify-center flex-col items-center rounded-lg gap-y-3">
           <div className="flex gap-6">
-            {/* <div className=" flex flex-col ">
-              <label className="text-center">Item</label>
-              <input
-                type="number"
-                className="border border-gray-400 indent-2 "
-                placeholder="Items"
-              />
-            </div> */}
             <NumberInput
               label="Items"
               placeholder="Number of items"
@@ -224,24 +224,6 @@ export default function Dryclean_itemorder() {
               max={20}
             />
 
-            {/* <div className=" flex flex-col">
-              <label className="text-center">Pieces</label>
-              <input
-                type="number"
-                className="border border-gray-400 indent-2"
-                placeholder="Pieces"
-              />
-            </div> */}
-            {/* <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Pieces" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select> */}
             <MultiSelect
               className="h-fit"
               onChange={(value) => {
@@ -271,11 +253,11 @@ export default function Dryclean_itemorder() {
               ]}
             />
           </div>
-          <input
+          {/* <input
             type="text"
             className="border mt-10 border-gray-400 indent-2 min-h-20 w-full"
             placeholder="Your details:"
-          />
+          /> */}
           <div className=" w-full">
             <label className="text-center">Amount:</label>
             <input
@@ -290,15 +272,35 @@ export default function Dryclean_itemorder() {
             className="border border-gray-400 indent-2 min-h-20 w-full"
             placeholder="Your comments:"
           />
-          {rate > 1 && (
-            <button
-              type="submit"
-              className="click  bg-blue-300 hover:bg-blue-500"
-              onClick={paymentHandler}
-            >
-              Continue to pay
-            </button>
-          )}
+          <Modal
+            opened={opened}
+            onClose={close}
+            // type="submit"
+            // onClick={paymentHandler}
+            centered
+          >
+            <div className="flex flex-col gap-4">
+              <Button
+                onClick={alertOk}
+                className=" bg-blue-300 hover:bg-blue-500"
+              >
+                Case On Delivery
+              </Button>
+
+              <Button
+                className="bg-blue-300 hover:bg-blue-500"
+                onClick={paymentHandler}
+              >
+                Rayzor Payment
+              </Button>
+            </div>
+          </Modal>
+          <Button
+            className="click  bg-blue-300 hover:bg-blue-500"
+            onClick={open}
+          >
+            Open modal
+          </Button>
         </div>
       </div>
     </>
