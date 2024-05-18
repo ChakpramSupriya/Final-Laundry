@@ -1,14 +1,71 @@
+import { LogIn, LogInIcon } from "lucide-react";
 import { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 export default function LoginRegister() {
+  const navigate = useNavigate();
   const [action, setAction] = useState(true);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  // {
+  //   "name":"Supriya",
+  //   "email":"supriya@gmail.com",
+  //   "password":"123"
+  // }
   const registerLink = () => {
     setAction(false);
   };
 
   const loginLink = () => {
     setAction(true);
+  };
+
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    const loginObject = {
+      email: email,
+      password: password,
+    };
+    const res = await fetch("http://localhost:3000/register/registration", {
+      method: "POST",
+      body: JSON.stringify(loginObject),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const resJson = res.json();
+    console.log(resJson);
+    setUserName("");
+    setEmail("");
+    setPassword("");
+    navigate("/home");
+  };
+
+  const registerHandler = async (e) => {
+    e.preventDefault();
+    const registerObject = {
+      name: userName,
+      email: email,
+      password: password,
+    };
+
+    const res = await fetch("http://localhost:3000/register/registration", {
+      method: "POST",
+      body: JSON.stringify(registerObject),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const resJson = res.json();
+    console.log(resJson);
+    setUserName("");
+    setEmail("");
+    setPassword("");
+    navigate("/home");
   };
   return (
     <div className="bg-[url('./assets/bgr.jpg')] bg-cover bg-center h-screen flex justify-center items-center">
@@ -31,8 +88,10 @@ export default function LoginRegister() {
               <input
                 className="w-full text-white h-full bg-transparent border-none outline-none border-solid-[2px] text-[rgba(255,255,255,.1)] rounded-xl pt-[20px] pr-[45px] pb-[20px] pl-[20px]"
                 type="text"
-                placeholder="Username"
+                placeholder="Email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <FaUser />
               {/* icon */}
@@ -44,6 +103,8 @@ export default function LoginRegister() {
                 type="password"
                 placeholder="Password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <FaLock />
             </div>
@@ -68,6 +129,7 @@ export default function LoginRegister() {
             <button
               type="submit"
               className="w-full h-[45px] bg-white border border-none outline-none rounded-lg shadow-[0_0_10px_rgba(0,0,0,.1)] cursor-pointer text-[16px] text-black font-semibold  hover: transition duration-500 hover:scale-110"
+              onClick={loginHandler}
             >
               Login
             </button>
@@ -106,6 +168,8 @@ export default function LoginRegister() {
                 type="text"
                 placeholder="Username"
                 required
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
               />
               <FaUser />
               {/* icon */}
@@ -117,6 +181,8 @@ export default function LoginRegister() {
                 type="email"
                 placeholder="Email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <FaEnvelope />
             </div>
@@ -127,6 +193,8 @@ export default function LoginRegister() {
                 type="password"
                 placeholder="Password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <FaLock />
             </div>
@@ -146,6 +214,7 @@ export default function LoginRegister() {
             <button
               type="submit"
               className="w-full h-[45px] bg-white border border-none outline-none rounded-lg shadow-[0_0_10px_rgba(0,0,0,.1)] cursor-pointer text-[16px] text-black font-semibold  hover: transition duration-500 hover:scale-110"
+              onClick={registerHandler}
             >
               Register
             </button>

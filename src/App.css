@@ -94,7 +94,7 @@ a {
 }
 .nav{
   height: 50px;
-  width: 35%;
+  width: 45%;
   /* padding-right: 50px; */
   /* background-color: red; */
 }
@@ -103,7 +103,7 @@ a {
   /* background-color: skyblue; */
   list-style-type: none;
   display: flex;
-  height: 40px;
+  height: 50px;
   padding-top: 22px;
   align-items: center;
   justify-content: space-evenly;
@@ -336,4 +336,20 @@ a {
   font-size: 22px;
 }
 
+.table
+{
+    width: 100%;
+    margin-top: 10px;
+}
+th 
+{
+    padding: 20px 10px;  
+    text-align: center;
+}
 
+td
+{
+    border-top: 1px solid #161616;  
+    padding: 20px 0px;  
+    text-align: center;
+}

@@ -9,7 +9,14 @@ import Swal from "sweetalert2";
 import { MultiSelect } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 
-export default function Dryclean_itemorder() {
+export default function Dryclean_itemorder({
+  setProduct,
+  setItem,
+  setAmount,
+  amount,
+  // seeData,
+  dryPost,
+}) {
   const [opened, { open, close }] = useDisclosure(false);
 
   const rateData = [
@@ -89,10 +96,11 @@ export default function Dryclean_itemorder() {
   const [rate, setRate] = useState(0);
   const navigate = useNavigate();
   const [select, setSelect] = useState();
-  const [amount, setAmount] = useState("");
+  // const [amount, setAmount] = useState("");
   const paymentHandler = async (e) => {
     const currency = "INR";
     const receiptId = "qwerty";
+    dryPost();
     const response = await fetch("http://localhost:3000/order", {
       method: "POST",
       body: JSON.stringify({
@@ -162,7 +170,7 @@ export default function Dryclean_itemorder() {
   // console.log(select);
 
   const setPriceRate = (value) => {
-    // console.log(value);
+    setProduct(value);
     let prices = [];
     setRate(0);
     for (let product = 0; product < value.length; product++) {
@@ -175,6 +183,7 @@ export default function Dryclean_itemorder() {
         })
         .filter((price) => price !== null && price !== undefined);
       prices = prices.concat(price);
+      // seeData;
     }
 
     // price = rateData.map((r) => {
@@ -187,8 +196,10 @@ export default function Dryclean_itemorder() {
     //     acc + r;
     //   })
     // );
+
     console.log(prices);
     setRate(prices.reduce((acc, r) => acc + r, 0));
+    setAmount(prices.reduce((acc, r) => acc + r, 0));
   };
   console.log(rate);
 
@@ -198,7 +209,8 @@ export default function Dryclean_itemorder() {
       text: "Thank you for your service",
       icon: "success",
     });
-    navigate("/myorder");
+    dryPost();
+    navigate("/mybookdryclean");
   };
   return (
     <>
@@ -220,6 +232,7 @@ export default function Dryclean_itemorder() {
               label="Items"
               placeholder="Number of items"
               clampBehavior="strict"
+              onChange={setItem}
               min={0}
               max={20}
             />
@@ -262,16 +275,16 @@ export default function Dryclean_itemorder() {
             <label className="text-center">Amount:</label>
             <input
               type="text"
-              className="border border-gray-400 indent-2"
+              className="border border-gray-400 indent-2 ml-3"
               placeholder="Rs......"
               value={rate}
             />
           </div>
-          <input
+          {/* <input
             type="text"
             className="border border-gray-400 indent-2 min-h-20 w-full"
             placeholder="Your comments:"
-          />
+          /> */}
           <Modal
             opened={opened}
             onClose={close}
@@ -284,14 +297,14 @@ export default function Dryclean_itemorder() {
                 onClick={alertOk}
                 className=" bg-blue-300 hover:bg-blue-500"
               >
-                Case On Delivery
+                Cash On Delivery
               </Button>
 
               <Button
                 className="bg-blue-300 hover:bg-blue-500"
                 onClick={paymentHandler}
               >
-                Rayzor Payment
+                Razor Payment
               </Button>
             </div>
           </Modal>
@@ -299,7 +312,7 @@ export default function Dryclean_itemorder() {
             className="click  bg-blue-300 hover:bg-blue-500"
             onClick={open}
           >
-            Open modal
+            Payment
           </Button>
         </div>
       </div>

@@ -2,15 +2,16 @@ import React from "react";
 import Header from "../Header";
 import { TiTickOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
-export default function Notificationsuccess() {
+export default function Notificationsuccess({ data, assistanceamount }) {
   const paymentHandler = async (e) => {
+    console.log(assistanceamount);
     const currency = "INR";
     const receiptId = "qwerty";
-    const amount = 400;
+    // const amount;
     const response = await fetch("http://localhost:3000/order", {
       method: "POST",
       body: JSON.stringify({
-        amount: amount * 100,
+        amount: assistanceamount * 100,
         currency,
         receipt: receiptId,
       }),
@@ -22,10 +23,10 @@ export default function Notificationsuccess() {
     console.log(order);
 
     const options = {
-      key: "rzp_test_JIH6EhvgsXj43w", // Enter the Key ID generated from the Dashboard
-      amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      key: "rzp_test_JIH6EhvgsXj43w",
+      amount: assistanceamount,
       currency,
-      name: "Supriya ch", //your business name
+      name: "Supriya ch",
       description: "Test Transaction",
       // image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -46,6 +47,7 @@ export default function Notificationsuccess() {
         );
         const jsonRes = await validateRes.json();
         console.log(jsonRes);
+        dataprops();
       },
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
@@ -60,6 +62,20 @@ export default function Notificationsuccess() {
         color: "#3399cc",
       },
     };
+
+    const dataprops = () => {
+      console.log(data);
+      fetch("http://localhost:3000/bookassistance/createassistancebook", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    };
+
     const rzp1 = new window.Razorpay(options);
     rzp1.on("payment.failed", (response) => {
       alert(response.error.code);

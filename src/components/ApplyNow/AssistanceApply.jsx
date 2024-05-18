@@ -49,6 +49,7 @@ export default function AssistanceApply() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+
     if (
       age === "" ||
       name === "" ||
@@ -408,6 +409,40 @@ export default function AssistanceApply() {
               htmlFor="service"
             >
               Toilet Cleaner
+            </label>
+
+            <input
+              className="cursor-pointer"
+              type="radio"
+              name="service"
+              id="Electrician"
+              value={"Electrician"}
+              required
+              checked={service === "Electrician"}
+              onChange={(e) => setService(e.target.value)}
+            />
+            <label
+              className="pt-0 pr-[10px] pb-2 pl-[5px] text-[14px] cursor-pointer"
+              htmlFor="service"
+            >
+              Electrician
+            </label>
+
+            <input
+              className="cursor-pointer"
+              type="radio"
+              name="service"
+              id="Carpenter"
+              value={"Carpenter"}
+              required
+              checked={service === "Carpenter"}
+              onChange={(e) => setService(e.target.value)}
+            />
+            <label
+              className="pt-0 pr-[10px] pb-2 pl-[5px] text-[14px] cursor-pointer"
+              htmlFor="service"
+            >
+              Carpenter
             </label>
 
             <div className="pt-2 pb-2 flex justify-center">

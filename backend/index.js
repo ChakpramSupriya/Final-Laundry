@@ -45,8 +45,12 @@ import express from "express";
 import Razorpay from "razorpay";
 import mongodb from "./config/db.js";
 import cors from "cors";
+import crypto from "node:crypto";
+import registerRoutes from "./routes/user.routes.js";
 import drycleanRoutes from "./routes/dryclean.routes.js";
 import assistanceRoutes from "./routes/assistance.route.js";
+import bookdrycleanRoutes from "./routes/bookdryclean.routes.js";
+import bookassistanceRoutes from "./routes/bookassistance.route.js";
 const app = express();
 const PORT = 3000;
 
@@ -94,8 +98,11 @@ app.post("/order/validate", async (req, res) => {
   });
 });
 
+app.use("/register", registerRoutes);
 app.use("/dryclean", drycleanRoutes);
 app.use("/assistance", assistanceRoutes);
+app.use("/bookdryclean", bookdrycleanRoutes);
+app.use("/bookassistance", bookassistanceRoutes);
 mongodb();
 
 app.listen(3000, () => {

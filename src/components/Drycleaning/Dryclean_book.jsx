@@ -9,7 +9,16 @@ import { FaAddressCard } from "react-icons/fa6";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 
-export default function Dryclean_book() {
+export default function Dryclean_book({
+  setName,
+  setAddress,
+  setDistrict,
+  setContact,
+  setPincode,
+  setMessage,
+  district,
+  // seeData,
+}) {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({
@@ -18,7 +27,7 @@ export default function Dryclean_book() {
     });
   }, []);
 
-  const [district, setDistrict] = useState("");
+  // const [district, setDistrict] = useState("");
   function handleDistrictChange(event) {
     setDistrict(event.target.value);
   }
@@ -45,12 +54,20 @@ export default function Dryclean_book() {
         <div className="dry_clean_input">
           <div className="inputs">
             <IoPersonSharp className="icon" />
-            <input type="name" placeholder="Your name" />
+            <input
+              type="name"
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+            />
           </div>
 
           <div className="inputs">
             <FaAddressCard className="icon" />
-            <input type="address" placeholder="Your address" />
+            <input
+              type="address"
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Your address"
+            />
           </div>
 
           <div className="inputs">
@@ -60,6 +77,7 @@ export default function Dryclean_book() {
               placeholder="Your contact no."
               minLength={10}
               maxLength={10}
+              onChange={(e) => setContact(e.target.value)}
             />
           </div>
 
@@ -70,16 +88,25 @@ export default function Dryclean_book() {
               <option value="Imphal East">Imphal East</option>
               <option value="Imphal West">Imphal West</option>
               <option value="Bishnupur">Bishnupur</option>
+              <option value="Thoubal">Thoubal</option>
             </select>
           </div>
 
           <div className="inputs">
             Pincode:
-            <input type="pincode" placeholder="Pincode" />
+            <input
+              type="pincode"
+              onChange={(e) => setPincode(e.target.value)}
+              placeholder="Pincode"
+            />
           </div>
           <div className="inputs-message">
             <MdEmail className="icon" />
-            <input type="text" placeholder="Your message" />
+            <input
+              type="text"
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Your message"
+            />
           </div>
         </div>
 
@@ -95,6 +122,7 @@ export default function Dryclean_book() {
           type="button"
           className="click bg-blue-300 hover:bg-blue-500 w-33 mt-4"
           onClick={() => {
+            // seeData();
             navigate("/dryclean_itemorder");
           }}
         >

@@ -33,7 +33,7 @@ export function HomeComponent() {
               <button
                 type="button"
                 onClick={() => {
-                  navigate("/dry_clean_steps");
+                  navigate("/drycleansteps");
                 }}
               >
                 Click

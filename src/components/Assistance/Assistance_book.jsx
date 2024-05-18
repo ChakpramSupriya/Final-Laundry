@@ -13,36 +13,37 @@ import { MultiSelect } from "@mantine/core";
 import { NumberInput } from "@mantine/core";
 import { DateTimePicker } from "@mantine/dates";
 
-export default function Assistance_book() {
+export default function Assistance_book({
+  data,
+  setData,
+  assistanceamount,
+  setAssistanceamount,
+}) {
   const navigate = useNavigate();
   const services = [
     {
       name: "Sweeper",
-      rate: 400,
     },
     {
       name: "Cooking",
-      rate: 400,
     },
     {
       name: "Plumber",
-      rate: 400,
     },
     {
       name: "Dish Washing",
-      rate: 400,
     },
     {
       name: "Care Taking",
-      rate: 400,
     },
     {
       name: "Electrician",
-      rate: 400,
+    },
+    {
+      name: "Carpenter",
     },
     {
       name: "Other more",
-      rate: 400,
     },
   ];
   useEffect(() => {
@@ -51,10 +52,67 @@ export default function Assistance_book() {
       behavior: "smooth",
     });
   }, []);
+
+  const [name, setName] = useState("");
+  const [add, setAdd] = useState("");
+  const [phone, setPhone] = useState("");
+  // const [dis, setDis] = useState("");
+  const [pin, setPin] = useState("");
+  const [message, setMessage] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [worker, setWorker] = useState("");
+  const [service, setService] = useState("");
   const [district, setDistrict] = useState("");
+  const [duration, setDuration] = useState("");
+  // const [assistanceamount, setAssistanceamount] = useState("");
+  // "fullname":"Supriya",
+  // "address":"Patsoi",
+  // "contactnumber":"546447679",
+  // "district":"Imphal East",
+  // "pincode":"795008",
+  // "message":"Need 1 Electrician",
+  // "date":"01/05/24",
+  // "time":"4:30 pm",
+  // "workers":"1",
+  // "serviceavailable":"Electrician"
+
+  const dataSubmit = () => {
+    const bookassistance = {
+      fullname: name,
+      address: add,
+      contactnumber: phone,
+      pincode: pin,
+      district,
+      message,
+      date,
+      time,
+      workers: worker,
+      serviceavailable: service,
+      duration,
+      amount: assistanceamount,
+    };
+    console.log(bookassistance);
+    setData(bookassistance);
+    // fetch("http://localhost:3000/bookassistance/createassistancebook", {
+    //   method: "POST",
+    //   body: JSON.stringify(bookassistance),
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+  };
   function handleDistrictChange(event) {
     setDistrict(event.target.value);
   }
+  useEffect(() => {
+    // if (duration === "1") {
+    setAssistanceamount(400 * +duration);
+    // }
+  }, [duration]);
+
   return (
     <>
       <Header />
@@ -79,12 +137,22 @@ export default function Assistance_book() {
         <div className="dry_clean_input">
           <div className="inputs">
             <IoPersonSharp className="icon" />
-            <input type="name" placeholder="Your name" />
+            <input
+              type="name"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
 
           <div className="inputs">
             <FaAddressCard className="icon" />
-            <input type="address" placeholder="Your address" />
+            <input
+              type="address"
+              placeholder="Your address"
+              value={add}
+              onChange={(e) => setAdd(e.target.value)}
+            />
           </div>
 
           <div className="inputs">
@@ -92,6 +160,8 @@ export default function Assistance_book() {
             <input
               type="text"
               placeholder="Your contact no."
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               minLength={10}
               maxLength={10}
             />
@@ -113,27 +183,49 @@ export default function Assistance_book() {
               <option value="Imphal East">Imphal East</option>
               <option value="Imphal West">Imphal West</option>
               <option value="Bishnupur">Bishnupur</option>
+              <option value="Thoubal">Thoubal</option>
             </select>
           </div>
 
           <div className="inputs">
             Pincode:
-            <input type="pincode" placeholder="Pincode" />
+            <input
+              type="pincode"
+              placeholder="Pincode"
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
+            />
           </div>
 
           <div className="inputs-message">
             <MdEmail className="icon" />
-            <input type="text" placeholder="Your message" />
+            <input
+              type="text"
+              placeholder="Your message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
           </div>
           <div className="inputs">
             {" "}
             Date:
-            <input type="date" placeholder=" Your Date:" />
+            <input
+              type="date"
+              placeholder=" Your Date:"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
           </div>
 
           <div className="inputs ">
             <label for="time">Time:</label>
-            <input type="time" name="time" placeholder="Your Time:" />
+            <input
+              type="time"
+              name="time"
+              placeholder="Your Time:"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
           </div>
 
           {/* <DateTimePicker
@@ -149,6 +241,8 @@ export default function Assistance_book() {
             <NumberInput
               className="w-90"
               placeholder="Number of workers:"
+              value={worker}
+              onChange={setWorker}
               clampBehavior="strict"
               min={0}
               max={20}
@@ -158,7 +252,9 @@ export default function Assistance_book() {
             <label className="text-center pl-4" for="services">
               Service:
             </label>
+
             <select
+              onChange={(e) => setService(e.target.value)}
               id="services"
               style={{
                 border: "1.5px solid gray",
@@ -168,10 +264,41 @@ export default function Assistance_book() {
                 padding: "10px 20px",
               }}
             >
-              {services.map((s) => (
-                <option value="">{s.name}</option>
+              <option value="asdf">Select Service</option>
+              {services.map((s, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                <option key={i} value={s.name}>
+                  {s.name}
+                </option>
               ))}
             </select>
+          </div>
+        </div>
+
+        <div className="flex w-full">
+          <div className=" inputs">
+            <label className="text-center">Duration:</label>
+            <input
+              type="number"
+              className="border border-gray-400 indent-2 ml-3"
+              placeholder="Duration hours"
+              clampBehavior="strict"
+              min={0}
+              max={5}
+              value={duration}
+              onChange={(e) => {
+                setDuration(e.target.value);
+              }}
+            />
+          </div>
+          <div className=" inputs">
+            <label className="text-center">Amount:</label>
+            <input
+              type="text"
+              className="border border-gray-400 indent-2 ml-3"
+              placeholder="Rs......"
+              value={assistanceamount}
+            />
           </div>
         </div>
 
@@ -203,7 +330,8 @@ export default function Assistance_book() {
           className="click bg-blue-300 hover:bg-blue-500 w-33"
           onClick={() => {
             const confirm = prompt("Confirmation to booking");
-            if (confirm === "yes") {
+            if (confirm.toLowerCase() === "yes") {
+              dataSubmit();
               navigate("/notification-success");
             } else {
               navigate("/notification-off");
@@ -213,6 +341,9 @@ export default function Assistance_book() {
           Book Now
         </button>
       </div>
+      {/* <div>
+        <Notificationsuccess bookassistance={bookassistance} />
+      </div> */}
     </>
   );
 }
