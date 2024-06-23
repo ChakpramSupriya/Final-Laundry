@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <>
       <section className="footer ">
-        <div className="footer_home">
+        <div className="footer_home ">
           <img className=" object-contain " src="/home_footer.png" alt="" />
           <div>
             <h1 className="footer_title">Menu</h1>

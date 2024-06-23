@@ -7,7 +7,7 @@ export default function ApplyNow() {
   return (
     <>
       <Header />
-      <div className="new_bg h-screen pt-[60px] ">
+      <div className="new_bg sm:h-screen pt-[70px] ">
         <h1 className="font-bold  text-[#078e93]  w-full text-[30px] text-center underline">
           Our Services
         </h1>
@@ -62,7 +62,7 @@ export default function ApplyNow() {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

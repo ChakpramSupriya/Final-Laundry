@@ -328,7 +328,7 @@ export default function AssistanceApply() {
               Gender
             </span>
             {/* gender-category */}
-            <div className="text-gray bg-red-400 sm:pl-4">
+            <div className="text-gray pl-4">
               <input
                 className="cursor-pointer"
                 type="radio"

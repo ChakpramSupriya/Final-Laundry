@@ -1,4 +1,4 @@
-import { IoPersonSharp } from "react-icons/io5";
+import { FiLogOut } from "react-icons/fi";
 import { IoIosNotifications } from "react-icons/io";
 import { FaBox } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
@@ -24,25 +24,31 @@ const Header = () => {
 
   return (
     <div>
-      <Drawer opened={opened} onClose={toggle}>
+      <Drawer
+        opened={opened}
+        onClose={toggle}
+        position="top"
+        height={20}
+        color="whitesmoke"
+      >
         <div className="flex flex-col text-xl">
-          <NavLink to="/home" className="navbar text-[24px] underline">
+          <NavLink to="/home" className="navbar text-[20px] ">
             Home
           </NavLink>
-          <NavLink to="/prices" className="navbar text-[24px] underline">
+          <NavLink to="/prices" className="navbar text-[20px] ">
             Prices
           </NavLink>
-          <NavLink to="/about" className="navbar text-[24px] underline">
+          <NavLink to="/about" className="navbar text-[20px]">
             About Us
           </NavLink>
-          <NavLink to="/applynow" className="navbar text-[24px] underline">
+          <NavLink to="/applynow" className="navbar text-[20px] ">
             Apply
           </NavLink>
           <li className="relative list-none cursor-pointer group  ">
-            <a className=" navbar text-[24px] flex underline ">
+            <a className=" navbar text-[20px] flex  ">
               Mybook
               <span>
-                <IoMdArrowDropdown className=" navbar text-[18px] mt-1" />
+                <IoMdArrowDropdown className=" navbar text-[20px] mt-1" />
               </span>
             </a>
             <div className="absolute z-[9999] hidden group-hover:block">
@@ -61,6 +67,9 @@ const Header = () => {
             </div>
           </li>
         </div>
+        <NavLink to="/">
+          <FiLogOut className="navbarlogo text-[28px]" />
+        </NavLink>
       </Drawer>
       <header className="header">
         <div className="logo">
@@ -115,7 +124,7 @@ const Header = () => {
               </div>
             </li>
             <NavLink to="/">
-              <IoPersonSharp className="navbarlogo text-[18px]" />
+              <FiLogOut className="navbarlogo text-[28px]" />
             </NavLink>
           </ul>
         </nav>
