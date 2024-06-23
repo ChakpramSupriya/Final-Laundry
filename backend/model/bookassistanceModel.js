@@ -23,7 +23,6 @@ const bookassistance = new mongoose.Schema({
   },
   message: {
     type: String,
-    required: true,
   },
   date: {
     type: String,

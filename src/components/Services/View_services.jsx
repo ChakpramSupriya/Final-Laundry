@@ -18,112 +18,164 @@ export default function View_services() {
       <Header />
       <div className="view-services">
         <div className="view-cleaning">
-          <h1>DRY CLEANING</h1>
-          <div className="image">
+          <h1 className="text-[25px] text-center underline">
+            DRY CLEANING SERVICES
+          </h1>
+          <div className="image ">
             <div>
               <img src="./service_lan.png" alt="" />
-              <button
-                className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
-                onClick={() => {
-                  navigate("/dry-clean-book");
-                }}
-              >
-                Laundry
-              </button>
+              <div className="flex justify-center items-center">
+                <button
+                  type="button"
+                  className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                  onClick={() => {
+                    navigate("/drycleanbook");
+                  }}
+                >
+                  Laundry
+                </button>
+              </div>
             </div>
             <div>
               <img src="./iron.jpg" alt="" />
-              <button
-                className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
-                onClick={() => {
-                  navigate("/dry-clean-book");
-                }}
-              >
-                Ironing
-              </button>
+              <div className="flex justify-center items-center">
+                <button
+                  type="button"
+                  className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                  onClick={() => {
+                    navigate("/drycleanbook");
+                  }}
+                >
+                  Ironing
+                </button>
+              </div>
             </div>
           </div>
 
           <div className="view-assistance">
-            <h1>ASSISTANCE</h1>
+            <h1 className="text-[25px] text-center underline">
+              ASSISTANCE SERVICES
+            </h1>
             <div className="image">
               <div>
-                <img src="./sweeper.png" alt="" />
-                <button
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md "
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  Sweeper
-                </button>
+                <img src="./sweeper.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Sweeper
+                  </button>
+                </div>
               </div>
               <div>
-                <img src="./dishwash.png" alt="" />
-                <button
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md text-[13px]"
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  Dish Washing
-                </button>
+                <img src="./dishwash.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[120px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Dish Washing
+                  </button>
+                </div>
               </div>
               <div>
-                <img src="./plumber.png" alt="" />
-                <button
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  Plumber
-                </button>
+                <img src="./plumber.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Plumber
+                  </button>
+                </div>
               </div>
               <div>
-                <img src="./cook.png" alt="" />
-                <button
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  Cooking
-                </button>
+                <img src="./cook.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Cooking
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <img src="./electrician.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Electrician
+                  </button>
+                </div>
               </div>
               <div>
-                <img src="./care.png" alt="" />
-                <button
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md "
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  Caretaking
-                </button>
+                <img src="./care.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Caretaking
+                  </button>
+                </div>
               </div>
               <div>
                 <img src="./toiletclean.jpg" alt="" />
-                <button
-                  type="button"
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md text-[13px]"
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  Toilet Cleaning
-                </button>
+                <div className="flex justify-center items-center">
+                  <button
+                    type="button"
+                    className="bg-blue-400  w-[120px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Toilet Cleaning
+                  </button>
+                </div>
+              </div>
+              <div>
+                <img src="./carpenter.jpg" alt="" />
+                <div className="flex justify-center items-center">
+                  <button
+                    type="button"
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    Carpenter
+                  </button>
+                </div>
               </div>
               <div>
                 <img src="./more.jpg" alt="" />
-                <button
-                  className="bg-gray-400 w-20 h-10 hover:bg-white mt-3 rounded-md"
-                  onClick={() => {
-                    navigate("/assistance-book");
-                  }}
-                >
-                  More
-                </button>
+                <div className="flex justify-center items-center">
+                  <button
+                    className="bg-blue-400  w-[100px] h-10 hover:bg-blue-300 mt-3 rounded-full"
+                    onClick={() => {
+                      navigate("/assistance-book");
+                    }}
+                  >
+                    More
+                  </button>
+                </div>
               </div>
             </div>
           </div>

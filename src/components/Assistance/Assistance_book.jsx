@@ -104,6 +104,39 @@ export default function Assistance_book({
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
   };
+
+  const districtPincode = [
+    {
+      district: "Imphal East",
+      pincode: "795008",
+    },
+    {
+      district: "Imphal West",
+      pincode: "795001",
+    },
+    {
+      district: "Thoubal",
+      pincode: "795138",
+    },
+    {
+      district: "Bishnupur",
+      pincode: "795126",
+    },
+    {
+      district: "Kakching",
+      pincode: "795103",
+    },
+  ];
+
+  useEffect(() => {
+    console.log(district);
+    const pincode = districtPincode.filter(
+      (eachDistrict) => eachDistrict.district === district
+    );
+    // console.log(pincode[0]?.pincode);
+    setPin(pincode[0]?.pincode);
+  }, [district]);
+
   function handleDistrictChange(event) {
     setDistrict(event.target.value);
   }
@@ -117,7 +150,7 @@ export default function Assistance_book({
     <>
       <Header />
 
-      <div className=" w-full h-full bg-[rgba(144,178,232,0.81)] pt-16">
+      <div className=" w-full h-full new_bg pt-20">
         <button
           onClick={() => {
             navigate("/home");
@@ -166,7 +199,7 @@ export default function Assistance_book({
               maxLength={10}
             />
           </div>
-          <div className="inputs">
+          {/* <div className="inputs">
             <p>District:</p>
             <select
               value={district}
@@ -184,6 +217,32 @@ export default function Assistance_book({
               <option value="Imphal West">Imphal West</option>
               <option value="Bishnupur">Bishnupur</option>
               <option value="Thoubal">Thoubal</option>
+            </select>
+          </div> */}
+
+          <div>
+            <label className="text-center pl-4" for="services">
+              District:
+            </label>
+
+            <select
+              onChange={(e) => setDistrict(e.target.value)}
+              id="district"
+              style={{
+                border: "1.5px solid gray",
+                margin: "10px",
+                borderRadius: "10px",
+                width: "400px",
+                padding: "10px 20px",
+              }}
+            >
+              <option value="district">Select District</option>
+              {districtPincode.map((s, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                <option key={i} value={s.district}>
+                  {s.district}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -211,7 +270,7 @@ export default function Assistance_book({
             Date:
             <input
               type="date"
-              placeholder=" Your Date:"
+              placeholder="dd/mm/yyyy"
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
@@ -222,7 +281,7 @@ export default function Assistance_book({
             <input
               type="time"
               name="time"
-              placeholder="Your Time:"
+              placeholder=""
               value={time}
               onChange={(e) => setTime(e.target.value)}
             />
@@ -244,7 +303,7 @@ export default function Assistance_book({
               value={worker}
               onChange={setWorker}
               clampBehavior="strict"
-              min={0}
+              min={1}
               max={20}
             />
           </div>
@@ -301,29 +360,6 @@ export default function Assistance_book({
             />
           </div>
         </div>
-
-        {/* <div className="radio">
-          <input type="radio" name="service" value="sweeper" />
-          <label htmlFor="sweeper">Sweeper</label>
-
-          <input type="radio" name="service" value="care taking" />
-          <label htmlFor="care taking">CareTaking</label>
-
-          <input type="radio" name="service" value="dish washing" />
-          <label htmlFor="dish washing">Dish Washing</label>
-
-          <input type="radio" name="service" value="plumber" />
-          <label htmlFor="plumber">Plumber</label>
-
-          <input type="radio" name="service" value="cooking" />
-          <label htmlFor="cooking">Cooking</label>
-
-          <input type="radio" name="service" value="toilet cleaning" />
-          <label htmlFor="toilet cleaning">Toilet Cleaning</label>
-
-          <input type="radio" name="service" value="more" />
-          <label htmlFor="more">More</label>
-        </div> */}
 
         <button
           type="button"

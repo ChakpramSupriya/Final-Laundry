@@ -1,6 +1,7 @@
 .left-arrow{
     width: 100%;
-    background-color:rgba(144, 178, 232, 0.81);
+    /* background-color:rgba(144, 178, 232, 0.81); */
+    background-color: rgb(216, 217, 221);
     padding-top: 80px;
     .arrow{
         width: 100px;
@@ -10,7 +11,8 @@
 
 .dry_clean_book{
     height: 800px;
-    background-color: rgba(144, 178, 232, 0.81);
+    background-color: rgb(216, 217, 221);
+    /* background-color: rgba(144, 178, 232, 0.81); */
     display: flex;
     align-items: center; 
     flex-direction: column;

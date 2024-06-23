@@ -21,7 +21,7 @@ export default function Dryclean_steps() {
   return (
     <>
       <Header />
-      <div className=" w-full  bg-[rgba(144,178,232,0.81)] pt-20">
+      <div className=" w-full  new_bg pt-20">
         <button
           type="button"
           onClick={() => {
@@ -31,7 +31,7 @@ export default function Dryclean_steps() {
           <FaArrowCircleLeft className="w-32 h-8" />
         </button>
       </div>
-      <div className="steps h-screen">
+      <div className="steps new_bg h-screen">
         <h2>STEPS FOR DRY CLEANING SERVICES</h2>
         <div className="photo">
           <img className="photo-img" src="placeorder.png" alt="" />

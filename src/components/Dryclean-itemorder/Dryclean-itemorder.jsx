@@ -92,6 +92,10 @@ export default function Dryclean_itemorder({
       type: "Bags",
       rate: 50,
     },
+    {
+      type: "Blankets",
+      rate: 100,
+    },
   ];
   const [rate, setRate] = useState(0);
   const navigate = useNavigate();
@@ -225,7 +229,7 @@ export default function Dryclean_itemorder({
           <FaArrowCircleLeft className="w-40 h-10" />
         </button>
       </div> */}
-      <div className="bg-[rgba(144,178,232,0.81)] h-screen w-full flex justify-center flex-col items-center ">
+      <div className="new_bg h-screen w-full flex justify-center flex-col items-center ">
         <div className="bg-white mt-6 w-[40em] h-fit p-8   flex justify-center flex-col items-center rounded-lg gap-y-3">
           <div className="flex gap-6">
             <NumberInput
@@ -261,16 +265,13 @@ export default function Dryclean_itemorder({
                 "Pillow covers",
                 "Curtains",
                 "Bednets",
+                "Blankets",
                 "Shoes",
                 "Bags",
               ]}
             />
           </div>
-          {/* <input
-            type="text"
-            className="border mt-10 border-gray-400 indent-2 min-h-20 w-full"
-            placeholder="Your details:"
-          /> */}
+
           <div className=" w-full">
             <label className="text-center">Amount:</label>
             <input
@@ -280,11 +281,7 @@ export default function Dryclean_itemorder({
               value={rate}
             />
           </div>
-          {/* <input
-            type="text"
-            className="border border-gray-400 indent-2 min-h-20 w-full"
-            placeholder="Your comments:"
-          /> */}
+
           <Modal
             opened={opened}
             onClose={close}

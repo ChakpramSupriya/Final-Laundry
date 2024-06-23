@@ -16,9 +16,9 @@ export default function Prices() {
   }, []);
   return (
     <>
-      <div className="prices">
+      <div className="prices ">
         <Header />
-        <div className="price">
+        <div className="price  pt-20">
           <div
             style={{
               width: "max-content",
@@ -86,7 +86,10 @@ export default function Prices() {
               ELECTRICIAN <span> Rs.400/hour</span>{" "}
             </div>
             <div className="span">
-              OTHERS more <span> Rs.400/hour</span>
+              CARPENTER <span> Rs.400/hour</span>{" "}
+            </div>
+            <div className="span">
+              OTHERS MORE <span> Rs.400/hour</span>
             </div>
           </div>
         </div>

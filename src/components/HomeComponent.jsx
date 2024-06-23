@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "./Footer";
+
+import { Carousel } from "@mantine/carousel";
 export function HomeComponent() {
   const navigate = useNavigate();
   useEffect(() => {
@@ -11,14 +13,29 @@ export function HomeComponent() {
   }, []);
   return (
     <>
-      <section className="banner">
+      <section className="banner ">
         <div className="laundry">
           <img className="image" src="home.png" alt="" />
         </div>
       </section>
+      {/* 
+      <Carousel
+        slideSize="70%"
+        slideGap="md"
+        controlsOffset="md"
+        controlSize={28}
+        loop
+      >
+        <Carousel.Slide>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzJUceSlHcO_CMl1lUdNdppVLxpCRKiknT3A&s" />
+        </Carousel.Slide>
+        <Carousel.Slide>2</Carousel.Slide>
+        <Carousel.Slide>3</Carousel.Slide>
+      
+      </Carousel> */}
 
       {/* services */}
-      <section className="services">
+      <section className="services ">
         <h1 className="section_title"> OUR SERVICES</h1>
         <div className="services_content">
           <div className="service">
@@ -70,7 +87,7 @@ export function HomeComponent() {
       </section>
 
       {/* about us */}
-      <section className="services">
+      <section className="services ">
         <h1 className="section_title"> ABOUT US</h1>
         <div className="service_home">
           <img src="/about_home.svg" alt="" />

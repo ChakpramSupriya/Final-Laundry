@@ -24,17 +24,23 @@ async function registerUser(req, res) {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(req.body);
     const userExist = await User.findOne({ email });
-    if (!userExist) return res.json("Email does not exist");
+    if (!userExist)
+      return res
+        .status(404)
+        .json({ success: false, message: "Email does not exist" });
 
     const compare = await bcrypt.compare(password, userExist.password);
-    if (!compare) return res.json("Invalid Password");
+    if (!compare)
+      return res.json({ success: false, message: "Invalid Password" });
 
     return res.json({
+      success: true,
       message: "Login Successfully",
     });
   } catch (err) {
-    return res.status(500).json(err.message);
+    return res.status(500).json({ success: false, message: err.message });
   }
 };
 export { registerUser, loginUser };

@@ -4,6 +4,47 @@ import drycleanModel from "../model/drycleanModel.js";
 const createDryclean = async (req, res) => {
   try {
     const info = req.body;
+    //   fullname: name,
+    //   age,
+    //   email,
+    //   phonenumber: phone,
+    //   address: add,
+    //   pincode: pin,
+    //   district: dis,
+    //   aadhaarnumber: adhar,
+    //   gender: gen,
+    //   date,
+    // };
+    const {
+      fullname,
+      age,
+      email,
+      phonenumber,
+      address,
+      pincode,
+      district,
+      aadhaarnumber,
+      gender,
+      date,
+    } = info;
+
+    if (
+      !fullname ||
+      !age ||
+      !phonenumber ||
+      !address ||
+      !pincode ||
+      !district ||
+      !aadhaarnumber ||
+      !gender ||
+      !date ||
+      !email
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
     const dryclean = await drycleanModel.create(info);
     res.status(201).json({
       success: true,

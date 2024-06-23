@@ -5,7 +5,7 @@
 
 .price{
     padding-top: 60px;
-    /* background-color: rgba(144, 178, 232, 0.81); */
+    background-color: rgb(216, 217, 221);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -25,8 +25,10 @@
     }
 }
 .span{
+    /* background-color: rgb(216, 217, 221); */
     display: flex;
     justify-content: space-between;
     width: 100%;
+    
   
 }

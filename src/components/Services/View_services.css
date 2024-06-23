@@ -5,8 +5,9 @@
 .view-cleaning{
     width: 100%;
     padding-top: 80px;
+    padding-right: 20px;
     margin-left: 5%;
-    margin-right: 5%;
+    /* margin-right: 10%; */
     column-gap: 20px;
 }
 h1{
@@ -20,9 +21,10 @@ h1{
     column-gap: 30px;
     flex-direction: row;
     flex-wrap: wrap;
-    div > img{
-        width: 300px;
+     img{
+        width: 280px;
         height: 260px;
+        border-radius: 50%;
     }
 }
 .view-assistance{

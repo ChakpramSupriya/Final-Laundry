@@ -11,7 +11,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <div className="section-about">
+      <div className="section-about  pt-20">
         <h1 className="about_laun">ABOUT US</h1>
 
         <div className="about">

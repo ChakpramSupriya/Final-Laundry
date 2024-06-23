@@ -28,7 +28,7 @@ export default function LoginRegister() {
       email: email,
       password: password,
     };
-    const res = await fetch("http://localhost:3000/register/registration", {
+    const res = await fetch("http://localhost:3000/register/login", {
       method: "POST",
       body: JSON.stringify(loginObject),
       headers: {
@@ -36,12 +36,17 @@ export default function LoginRegister() {
       },
     });
 
-    const resJson = res.json();
+    const resJson = await res.json();
     console.log(resJson);
+    localStorage.setItem("isLogin", JSON.stringify(resJson.success));
+    if (resJson.success) {
+      navigate("/home");
+    } else {
+      alert(resJson.message);
+    }
     setUserName("");
     setEmail("");
     setPassword("");
-    navigate("/home");
   };
 
   const registerHandler = async (e) => {
@@ -60,7 +65,7 @@ export default function LoginRegister() {
       },
     });
 
-    const resJson = res.json();
+    const resJson = await res.json();
     console.log(resJson);
     setUserName("");
     setEmail("");
@@ -120,10 +125,10 @@ export default function LoginRegister() {
                 Remember me
               </label>
               {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-              <a href="#" className="text-white hover:underline">
-                {" "}
-                Forgot password?
-              </a>
+              {/* <a href="#" className="text-white hover:underline"> */}
+              {/* {" "} */}
+              {/* Forgot password? */}
+              {/* </a> */}
             </div>
 
             <button

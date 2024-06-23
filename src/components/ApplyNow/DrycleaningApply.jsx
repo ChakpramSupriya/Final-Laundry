@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import validator from "aadhaar-validator";
 import Swal from "sweetalert2";
 
 export default function DryCleaningApply() {
@@ -11,6 +12,7 @@ export default function DryCleaningApply() {
   const [dis, setDis] = useState("");
   const [adhar, setAdhar] = useState("");
   const [gen, setGen] = useState("");
+  const [date, setDate] = useState("");
   const alertThankYou = (e) => {
     e.preventDefault();
 
@@ -35,7 +37,17 @@ export default function DryCleaningApply() {
       district: dis,
       aadhaarnumber: adhar,
       gender: gen,
+      date,
     };
+    if (!validator.isValidNumber(adhar)) {
+      Swal.fire({
+        icon: "error",
+        title: "Not a valid Addhar Number",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
     console.log(dryclean);
     fetch("http://localhost:3000/dryclean/createDryclean", {
       method: "POST",
@@ -45,7 +57,17 @@ export default function DryCleaningApply() {
       },
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (!data.success) {
+          Swal.fire({
+            icon: "error",
+            title: data.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+        }
+      });
     if (
       age === "" ||
       name === "" ||
@@ -55,7 +77,8 @@ export default function DryCleaningApply() {
       pin === "" ||
       dis === "" ||
       adhar === "" ||
-      gen === ""
+      gen === "" ||
+      date === ""
     ) {
       return;
     }
@@ -69,6 +92,7 @@ export default function DryCleaningApply() {
     setDis("");
     setAdhar("");
     setGen("");
+    setDate("");
 
     Swal.fire({
       title: "Thank You!",
@@ -77,17 +101,50 @@ export default function DryCleaningApply() {
       confirmButtonText: "OK",
     });
   };
+
+  const districtPincode = [
+    {
+      district: "Imphal East",
+      pincode: "795008",
+    },
+    {
+      district: "Imphal West",
+      pincode: "795001",
+    },
+    {
+      district: "Thoubal",
+      pincode: "795138",
+    },
+    {
+      district: "Bishnupur",
+      pincode: "795126",
+    },
+    {
+      district: "Kakching",
+      pincode: "795103",
+    },
+  ];
+
+  useEffect(() => {
+    console.log(dis);
+    const pincode = districtPincode.filter(
+      (eachDistrict) => eachDistrict.district === dis
+    );
+    // console.log(pincode[0]?.pincode);
+    setPin(pincode[0]?.pincode);
+  }, [dis]);
+
   return (
     // container
-    <div className="h-screen flex justify-center items-center bg-gradient-to-b from-[#380036] to-[#0CBABA]">
-      <div className="max-w-[650px] p-[28px] mt-0 mb-0 mr-7 ml-7 shadow-2xl shadow-black bg-purple-100 rounded-xl">
+    <div className=" flex justify-center items-center bg-gradient-to-b from-[#380036] to-[#0CBABA]">
+      <div className="my-4 max-w-[650px] p-[28px]  mr-7 ml-7 shadow-2xl shadow-black bg-purple-100 rounded-xl">
         <form>
-          <h2 className="text-[26px] font-semibold text-left text-[#2f4f4f] pb-2 border-solid">
+          <h2 className="text-[26px] font-semibold text-center text-[#2f4f4f] pb-1 border-solid">
             Registration for Dry Cleaning
           </h2>
           <hr />
           {/* content */}
-          <div className="flex flex-wrap justify-between pt-5 pb-5 pr-0 pl-0">
+          <div className="flex flex-wrap justify-between pt-2 pb-2 pr-0 pl-0 mt-2">
             {/* input-box */}
             <div className="flex flex-wrap w-[50%] pb-4 justify-end">
               <label
@@ -181,6 +238,46 @@ export default function DryCleaningApply() {
               />
             </div>
 
+            {/* <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+              <label
+                className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
+                htmlFor="district"
+              >
+                District*
+              </label>
+              <input
+                className="h-[40px] w-[95%] pt-0 pb-0 pr-[10px] pl-[10px] rounded-md border-solid border-[1px] outline-none"
+                type="text"
+                placeholder="Enter District"
+                value={dis}
+                onChange={(e) => setDis(e.target.value)}
+                name="district"
+                required
+              />
+            </div> */}
+            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+              <label
+                className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
+                for="services"
+              >
+                District*
+              </label>
+
+              <select
+                onChange={(e) => setDis(e.target.value)}
+                id="district"
+                className="h-[40px] w-[95%] pt-0 pb-0 pr-[10px] pl-[10px] rounded-md border-solid border-[1px] outline-none"
+              >
+                <option value="district">Select District</option>
+                {districtPincode.map((s, i) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <option key={i} value={s.district}>
+                    {s.district}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="flex flex-wrap w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
@@ -203,24 +300,6 @@ export default function DryCleaningApply() {
             <div className="flex flex-wrap w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
-                htmlFor="district"
-              >
-                District*
-              </label>
-              <input
-                className="h-[40px] w-[95%] pt-0 pb-0 pr-[10px] pl-[10px] rounded-md border-solid border-[1px] outline-none"
-                type="text"
-                placeholder="Enter District"
-                value={dis}
-                onChange={(e) => setDis(e.target.value)}
-                name="district"
-                required
-              />
-            </div>
-
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
-              <label
-                className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="aadhar"
               >
                 Aadhaar Number*
@@ -233,6 +312,24 @@ export default function DryCleaningApply() {
                 value={adhar}
                 onChange={(e) => setAdhar(e.target.value)}
                 name="aadhaar"
+                required
+              />
+            </div>
+
+            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+              <label
+                className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
+                htmlFor="date"
+              >
+                Date
+              </label>
+              <input
+                className="h-[40px] w-[95%] pt-0 pb-0 pr-[10px] pl-[10px] rounded-md border-solid border-[1px] outline-none"
+                type="date"
+                placeholder="Enter date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                name="date"
                 required
               />
             </div>
@@ -295,6 +392,7 @@ export default function DryCleaningApply() {
               </label>
             </div>
           </div>
+
           {/* button-container */}
           <div className="m-[15px 0]">
             <button

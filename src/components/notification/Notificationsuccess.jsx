@@ -94,7 +94,7 @@ export default function Notificationsuccess({ data, assistanceamount }) {
     <>
       <Header />
 
-      <div className="bg-[rgba(144,178,232,0.81)] w-full h-screen flex justify-center items-center flex-col gap-2">
+      <div className="new_bg w-full h-screen flex justify-center items-center flex-col gap-2">
         <TiTickOutline className="text-green-500 w-48 h-44" />
         <p>Your book is now confirm</p>
         <h2 className="text-blue-600">NOW AVAILABLE</h2>

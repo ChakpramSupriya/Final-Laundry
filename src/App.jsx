@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Register from "./components/Register";
-import Login from "./components/Login";
+// import Register from "./components/Register";
+// import Login from "./components/Login";
 import Home from "./components/Home";
 import About from "./components/About";
 import View_services from "./components/Services/View_services";
@@ -15,7 +15,6 @@ import Notificationsuccess from "./components/notification/Notificationsuccess";
 import Notificationoff from "./components/notification/Notificationoff";
 import { HomeComponent } from "./components/HomeComponent";
 import Dryclean_itemorder from "./components/Dryclean-itemorder/Dryclean-itemorder";
-import Cardpage from "./components/Cardpage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ApplyNow from "./components/ApplyNow/ApplyNow";
@@ -109,6 +108,7 @@ function App() {
                   setContact={setContact}
                   setDistrict={setDistrict}
                   setPincode={setPincode}
+                  pincode={pincode}
                   setMessage={setMessage}
                 />
               }
@@ -127,9 +127,6 @@ function App() {
                 />
               }
             />
-            {/* <Route path="/cardpage" element={<Cardpage />} />
-            <Route path="/debitcard" element={<Debitcard />} /> */}
-
             <Route
               path="/assistance-book"
               element={
@@ -155,8 +152,8 @@ function App() {
             <Route path="/notification-off" element={<Notificationoff />} />
             <Route path="/services" element={<View_services />} />
             <Route path="/prices" element={<Prices />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            {/* <Route path="/login" element={<Login />} /> */}
+            {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/about" element={<About />} />
             <Route path="/mybookdryclean" element={<MyDryClean />} />
             <Route path="/mybookassistance" element={<MyAssistance />} />

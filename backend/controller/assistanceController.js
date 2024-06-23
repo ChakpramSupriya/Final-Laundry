@@ -4,6 +4,38 @@ import assistanceModel from "../model/assistanceModel.js";
 const createAssistance = async (req, res) => {
   try {
     const info = req.body;
+    const {
+      fullname,
+      age,
+      email,
+      phonenumber,
+      address,
+      pincode,
+      district,
+      aadhaarnumber,
+      gender,
+      date,
+      serviceavailable,
+    } = info;
+
+    if (
+      !fullname ||
+      !age ||
+      !phonenumber ||
+      !address ||
+      !pincode ||
+      !district ||
+      !aadhaarnumber ||
+      !gender ||
+      !date ||
+      !email ||
+      !serviceavailable
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
     console.log(info);
     const assistancecreate = await assistanceModel.create(info);
     res.status(201).json({

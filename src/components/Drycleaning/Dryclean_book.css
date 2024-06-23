@@ -10,7 +10,7 @@
 
 .dry_clean_book{
     height: 400px;
-    background-color: rgb(216, 217, 221);
+    /* background-color: rgb(216, 217, 221); */
     display: flex;
     align-items: center; 
     flex-direction: column;

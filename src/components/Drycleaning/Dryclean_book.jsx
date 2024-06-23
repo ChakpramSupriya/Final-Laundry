@@ -17,6 +17,7 @@ export default function Dryclean_book({
   setPincode,
   setMessage,
   district,
+  pincode,
   // seeData,
 }) {
   const navigate = useNavigate();
@@ -27,6 +28,36 @@ export default function Dryclean_book({
     });
   }, []);
 
+  const districtPincode = [
+    {
+      district: "Imphal East",
+      pincode: "795008",
+    },
+    {
+      district: "Imphal West",
+      pincode: "795001",
+    },
+    {
+      district: "Thoubal",
+      pincode: "795138",
+    },
+    {
+      district: "Bishnupur",
+      pincode: "795126",
+    },
+    {
+      district: "Kakching",
+      pincode: "795103",
+    },
+  ];
+
+  useEffect(() => {
+    console.log(district);
+    const pincode = districtPincode.filter(
+      (eachDistrict) => eachDistrict.district === district
+    );
+    setPincode(pincode[0]?.pincode);
+  }, [district]);
   // const [district, setDistrict] = useState("");
   function handleDistrictChange(event) {
     setDistrict(event.target.value);
@@ -34,18 +65,18 @@ export default function Dryclean_book({
   return (
     <>
       <Header />
-      <div className=" w-full bg-[rgba(144,178,232,0.81)] pt-20">
+      <div className=" new_bg w-full  pt-20">
         <button
           type="button"
           onClick={() => {
-            navigate("/dry_clean_steps");
+            navigate("/drycleansteps");
           }}
         >
           <FaArrowCircleLeft className="w-32 h-8" />
         </button>
       </div>
 
-      <div className="dry_clean_book">
+      <div className="dry_clean_book new_bg">
         <h1>MAKE A BOOKING</h1>
         <p>
           We will collect ,clean and delivery your laundry directly to your
@@ -81,7 +112,7 @@ export default function Dryclean_book({
             />
           </div>
 
-          <div className="inputs">
+          {/* <div className="inputs">
             <p className="text-2xl">District:</p>
             <select value={district} onChange={handleDistrictChange}>
               <option value="">Select an option</option>
@@ -90,12 +121,39 @@ export default function Dryclean_book({
               <option value="Bishnupur">Bishnupur</option>
               <option value="Thoubal">Thoubal</option>
             </select>
+          </div> */}
+
+          <div>
+            <label className="text-center pl-4" for="services">
+              District:
+            </label>
+
+            <select
+              onChange={(e) => setDistrict(e.target.value)}
+              id="district"
+              style={{
+                border: "1.5px solid gray",
+                margin: "10px",
+                borderRadius: "10px",
+                width: "400px",
+                padding: "10px 20px",
+              }}
+            >
+              <option value="district">Select District</option>
+              {districtPincode.map((s, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                <option key={i} value={s.district}>
+                  {s.district}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="inputs">
             Pincode:
             <input
               type="pincode"
+              value={pincode}
               onChange={(e) => setPincode(e.target.value)}
               placeholder="Pincode"
             />

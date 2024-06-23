@@ -23,7 +23,6 @@ const bookdryclean = new mongoose.Schema({
   },
   message: {
     type: String,
-    required: true,
   },
   items: {
     type: Number,

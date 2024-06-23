@@ -3,6 +3,8 @@ import { IoIosNotifications } from "react-icons/io";
 import { FaBox } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useDisclosure } from "@mantine/hooks";
+import { Burger } from "@mantine/core";
 
 const DropdownLink = [
   {
@@ -17,14 +19,22 @@ const DropdownLink = [
   },
 ];
 const Header = () => {
+  const [opened, { toggle }] = useDisclosure();
+
   return (
     <div>
-      {" "}
       <header className="header">
         <div className="logo">
-          <img src="title.png" alt="" />
+          <img className="w-[120px] h-[90px] pt-2 pb-1" src="logo.png" alt="" />
         </div>
-        <nav className="nav">
+        <div className="sm:hidden">
+          <Burger
+            opened={opened}
+            onClick={toggle}
+            aria-label="Toggle navigation"
+          />
+        </div>
+        <nav className="nav hidden sm:block">
           <ul>
             <NavLink to="/home" className=" navbar text-[18px]">
               Home
@@ -35,17 +45,15 @@ const Header = () => {
             <NavLink to="/about" className="  navbar text-[18px]">
               About Us
             </NavLink>
-            <NavLink to="/notification-off">
+            {/* <NavLink to="/notification-off">
               <IoIosNotifications className="navbarlogo text-[18px]" />
-            </NavLink>
-            <NavLink to="/">
-              <IoPersonSharp className="navbarlogo text-[18px]" />
-            </NavLink>
+            </NavLink> */}
+
             <NavLink to="/applynow" className="  navbar text-[18px]">
               Apply
             </NavLink>
             <li className="relative cursor-pointer group  ">
-              <a href="" className=" navbar text-[18px] flex ">
+              <a className=" navbar text-[18px] flex ">
                 Mybook
                 <span>
                   <IoMdArrowDropdown className=" navbar text-[18px] mt-1" />
@@ -66,6 +74,9 @@ const Header = () => {
                 </ul>
               </div>
             </li>
+            <NavLink to="/">
+              <IoPersonSharp className="navbarlogo text-[18px]" />
+            </NavLink>
           </ul>
         </nav>
       </header>

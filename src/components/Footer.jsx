@@ -5,7 +5,7 @@ export default function Footer() {
   const navigate = useNavigate();
   return (
     <>
-      <section className="footer">
+      <section className="footer ">
         <div className="footer_home">
           <img className=" object-contain " src="/home_footer.png" alt="" />
           <div>
