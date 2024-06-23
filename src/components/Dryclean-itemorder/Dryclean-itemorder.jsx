@@ -229,9 +229,9 @@ export default function Dryclean_itemorder({
           <FaArrowCircleLeft className="w-40 h-10" />
         </button>
       </div> */}
-      <div className="new_bg h-screen w-full flex justify-center flex-col items-center ">
-        <div className="bg-white mt-6 w-[40em] h-fit p-8   flex justify-center flex-col items-center rounded-lg gap-y-3">
-          <div className="flex gap-6">
+      <div className="new_bg  h-screen flex justify-center flex-col items-center ">
+        <div className="bg-white mt-6 w-fit sm:w-[40em]  h-fit p-8   flex justify-center flex-col items-center rounded-lg gap-y-3">
+          <div className="flex flex-cols gap-6">
             <NumberInput
               label="Items"
               placeholder="Number of items"

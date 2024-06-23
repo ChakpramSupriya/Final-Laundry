@@ -109,3 +109,19 @@
     }
     
 }
+@media  (max-width: 425px){
+    .inputs.pincode{
+        display:flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .select_district{
+        width:300px
+    }
+    .dry_clean_book{
+        height: max-content;
+    }
+    .inputs input{
+        width: 70vw;
+    }
+}

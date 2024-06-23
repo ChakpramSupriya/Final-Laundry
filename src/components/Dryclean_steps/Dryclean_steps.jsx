@@ -31,19 +31,28 @@ export default function Dryclean_steps() {
           <FaArrowCircleLeft className="w-32 h-8" />
         </button>
       </div>
-      <div className="steps new_bg h-screen">
+      <div className="steps new_bg sm:h-screen pb-10">
         <h2>STEPS FOR DRY CLEANING SERVICES</h2>
         <div className="photo">
-          <img className="photo-img" src="placeorder.png" alt="" />
-          <img className="photo-img" src="pickup.svg" alt="" />
-          <img className="photo-img" src="drop.svg" alt="" />
+          <div className="flex flex-col items-center">
+            <img className="photo-img" src="placeorder.png" alt="" />
+            <h4 className="block sm:hidden">PLACED ORDER</h4>
+          </div>
+          <div className="flex flex-col items-center">
+            <img className="photo-img" src="pickup.svg" alt="" />
+            <h4 className="block sm:hidden">PICK UP </h4>
+          </div>
+          <div className="flex flex-col items-center">
+            <img className="photo-img" src="drop.svg" alt="" />
+            <h4 className="block sm:hidden">DROP OFF</h4>
+          </div>
         </div>
-        <div className="steps-order">
+        <div className="steps-order hidden sm:block">
           <h4>PLACED ORDER</h4>
           <h4>PICK UP </h4>
           <h4>DROP OFF</h4>
         </div>
-        <div className="steps-order-par">
+        <div className="steps-order-par flex flex-wrap flex-cols">
           <p>Placed your order in seconds.</p>
           <p>We pickup the clothes.</p>
           <p>Deliver your clothes.</p>

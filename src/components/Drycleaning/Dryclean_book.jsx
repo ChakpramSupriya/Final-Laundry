@@ -131,13 +131,7 @@ export default function Dryclean_book({
             <select
               onChange={(e) => setDistrict(e.target.value)}
               id="district"
-              style={{
-                border: "1.5px solid gray",
-                margin: "10px",
-                borderRadius: "10px",
-                width: "400px",
-                padding: "10px 20px",
-              }}
+              className="select_district"
             >
               <option value="district">Select District</option>
               {districtPincode.map((s, i) => (
@@ -149,8 +143,8 @@ export default function Dryclean_book({
             </select>
           </div>
 
-          <div className="inputs">
-            Pincode:
+          <div className="inputs pincode">
+            <p>Pincode:</p>
             <input
               type="pincode"
               value={pincode}

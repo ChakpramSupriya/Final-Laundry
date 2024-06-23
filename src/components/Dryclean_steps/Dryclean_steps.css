@@ -82,3 +82,51 @@
 .click:hover{
     background-color: rgb(114, 131, 244);
 }
+.select_district{
+    border: 1.5px solid gray;
+    margin: 10px;
+    border-radius: 10px;
+    width: 400px;
+    padding: 10px 20px;
+}
+
+@media  (max-width: 425px)
+{
+    .photo{
+    display: flex;
+    flex-direction: column;
+    gap:10;
+        img{
+            width: 200px;
+            height: 150px;
+        }
+    }
+    .steps-order{
+        justify-content: center;
+        column-gap: 10px;
+        width: 100vw;
+    }
+    .cursor-pointer{
+        li{
+            text-decoration: underline;
+        }
+    }
+    .steps-order-par{
+        column-gap: 6px
+    }
+    .click{
+        width:fit-content;
+        padding:10px 6px
+    }
+    .steps{
+        height:max-content;
+    }
+    .inputs.pincode{
+        display:flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .select_district{
+        width:300px
+    }
+}

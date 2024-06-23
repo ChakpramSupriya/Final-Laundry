@@ -228,13 +228,7 @@ export default function Assistance_book({
             <select
               onChange={(e) => setDistrict(e.target.value)}
               id="district"
-              style={{
-                border: "1.5px solid gray",
-                margin: "10px",
-                borderRadius: "10px",
-                width: "400px",
-                padding: "10px 20px",
-              }}
+              className="select_district"
             >
               <option value="district">Select District</option>
               {districtPincode.map((s, i) => (
@@ -246,7 +240,7 @@ export default function Assistance_book({
             </select>
           </div>
 
-          <div className="inputs">
+          <div className="inputs pincode">
             Pincode:
             <input
               type="pincode"
@@ -266,7 +260,6 @@ export default function Assistance_book({
             />
           </div>
           <div className="inputs">
-            {" "}
             Date:
             <input
               type="date"
@@ -315,13 +308,7 @@ export default function Assistance_book({
             <select
               onChange={(e) => setService(e.target.value)}
               id="services"
-              style={{
-                border: "1.5px solid gray",
-                margin: "10px",
-                borderRadius: "10px",
-                width: "400px",
-                padding: "10px 20px",
-              }}
+              className="select_district"
             >
               <option value="asdf">Select Service</option>
               {services.map((s, i) => (
@@ -334,7 +321,7 @@ export default function Assistance_book({
           </div>
         </div>
 
-        <div className="flex w-full">
+        <div className="flex w-full flex-col sm:flex-row">
           <div className=" inputs">
             <label className="text-center">Duration:</label>
             <input
