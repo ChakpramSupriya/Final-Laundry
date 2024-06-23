@@ -34,6 +34,7 @@ const Header = () => {
             aria-label="Toggle navigation"
           />
         </div>
+
         <nav className="nav hidden sm:block">
           <ul>
             <NavLink to="/home" className=" navbar text-[18px]">
