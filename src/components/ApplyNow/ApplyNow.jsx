@@ -12,7 +12,7 @@ export default function ApplyNow() {
           Our Services
         </h1>
         {/* services */}
-        <div className="p-[20px] w-[100%] flex justify-center gap-12 items-center m-[75px auto] text-center  rounded-md">
+        <div className="p-[20px] w-[100%] flex justify-center gap-12 items-center m-[75px auto] text-center flex-wrap  rounded-md">
           {/* card */}
           <div className="p-[20px] transition duration-500 hover:scale-110 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[300px] max-h-[900px] flex justify-between items-center flex-col  bg-white rounded-lg cursor-pointer">
             <div>
@@ -62,7 +62,7 @@ export default function ApplyNow() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

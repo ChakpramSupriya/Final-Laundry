@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useDisclosure } from "@mantine/hooks";
 import { Burger } from "@mantine/core";
+import { Drawer, Button } from "@mantine/core";
 
 const DropdownLink = [
   {
@@ -23,11 +24,49 @@ const Header = () => {
 
   return (
     <div>
+      <Drawer opened={opened} onClose={toggle}>
+        <div className="flex flex-col text-xl">
+          <NavLink to="/home" className="navbar text-[24px] underline">
+            Home
+          </NavLink>
+          <NavLink to="/prices" className="navbar text-[24px] underline">
+            Prices
+          </NavLink>
+          <NavLink to="/about" className="navbar text-[24px] underline">
+            About Us
+          </NavLink>
+          <NavLink to="/applynow" className="navbar text-[24px] underline">
+            Apply
+          </NavLink>
+          <li className="relative list-none cursor-pointer group  ">
+            <a className=" navbar text-[24px] flex underline ">
+              Mybook
+              <span>
+                <IoMdArrowDropdown className=" navbar text-[18px] mt-1" />
+              </span>
+            </a>
+            <div className="absolute z-[9999] hidden group-hover:block">
+              <ul className="space-y-1">
+                {DropdownLink.map((data, index) => (
+                  <li>
+                    <a
+                      className="text-[14px] inline-block w-full p-1 hover:bg-white rounded-md underline"
+                      href={data.link}
+                    >
+                      {data.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        </div>
+      </Drawer>
       <header className="header">
         <div className="logo">
           <img className="w-[120px] h-[90px] pt-2 pb-1" src="logo.png" alt="" />
         </div>
-        <div className="sm:hidden">
+        <div className="sm:hidden flex ">
           <Burger
             opened={opened}
             onClick={toggle}

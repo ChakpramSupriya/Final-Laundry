@@ -129,18 +129,7 @@ a {
 .navbarlogo.active{
   color: blue;
 }
-@media  (max-width: 576px)
-{
-  
-  .logo{
-    font-size: 22px;
-  }
-  
 
-  .box{
-    padding-left: 60px;
-  }
-}
 /* //bnner */
 .person{
   font-size: 22px;
@@ -163,6 +152,7 @@ a {
     padding-left: 15%;
     padding-right: 15%;
     width: 100vw;
+    object-fit: contain;
     height: 350px;
   }
  }
@@ -175,7 +165,7 @@ a {
   color: black;
 }
 .services{
-  padding: 50px 10%;
+  padding: 50px 10%; 
   background-color: rgb(216, 217, 221);
   display: flex;
   flex-direction: column;
@@ -188,6 +178,7 @@ a {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap:20px;
   /* column-gap: calc(34%/2); */
   column-gap: 50px;
 }
@@ -268,6 +259,7 @@ a {
   flex-wrap: wrap;
   align-items:center;
   padding: 12px;
+
   img{
     width:fit-content;
     height: 300px;
@@ -362,4 +354,54 @@ td
     border-top: 1px solid #161616;  
     padding: 20px 0px;  
     text-align: center;
+}
+
+@media  (max-width: 425px)
+{
+  
+  .logo{
+    font-size: 22px;
+  }
+  
+
+  .box{
+    padding-left: 60px;
+  }
+
+  .service{
+    width: 300px;
+    img{
+
+      object-fit: contain;
+    }
+  
+  }
+  .banner{
+    height: 300px;
+    .laundry{
+      img{
+        margin:0px;
+        padding-top:0px;
+      }
+    }
+
+  }
+  .about{
+    display: flex;
+    flex-direction: column;
+    gap:0;
+    padding:0;
+    img{
+      height:200px;
+      object-fit: contain;
+    }
+  }
+  .about1{
+    gap: 0;
+    margin:10px;
+  }
+  .about-img{
+    height: 100px;
+    padding:0;
+  }
 }

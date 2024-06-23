@@ -153,7 +153,7 @@ export default function AssistanceApply() {
           {/* content */}
           <div className="flex flex-wrap justify-between pt-5  pr-0 pl-0">
             {/* input-box */}
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1"
                 htmlFor="name"
@@ -171,7 +171,7 @@ export default function AssistanceApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="age"
@@ -190,7 +190,7 @@ export default function AssistanceApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="email"
@@ -208,7 +208,7 @@ export default function AssistanceApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="phonenumber"
@@ -227,7 +227,7 @@ export default function AssistanceApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="address"
@@ -245,7 +245,7 @@ export default function AssistanceApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 for="services"
@@ -268,7 +268,7 @@ export default function AssistanceApply() {
               </select>
             </div>
 
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="pincode"
@@ -287,7 +287,7 @@ export default function AssistanceApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="aadhar"
@@ -305,7 +305,7 @@ export default function AssistanceApply() {
                 required
               />
             </div>
-            <div className="flex flex-wrap w-[50%]  justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%]  justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="date"
@@ -328,7 +328,7 @@ export default function AssistanceApply() {
               Gender
             </span>
             {/* gender-category */}
-            <div className="text-gray pl-4">
+            <div className="text-gray bg-red-400 sm:pl-4">
               <input
                 className="cursor-pointer"
                 type="radio"
@@ -526,7 +526,7 @@ export default function AssistanceApply() {
 
             <div className="pt-2 pb-2 flex justify-center">
               <input
-                className="h-[40px] w-[80%] pt-0 pb-0 pr-[10px] pl-[10px] rounded-md border-solid border-[1px] outline-none"
+                className="h-[40px] w-full sm:w-[80%] pt-0 pb-0 pr-[10px] pl-[10px] rounded-md border-solid border-[1px] outline-none"
                 type="text"
                 placeholder="Others more"
                 name="text"

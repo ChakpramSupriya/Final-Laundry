@@ -18,7 +18,7 @@ export default function Prices() {
     <>
       <div className="prices ">
         <Header />
-        <div className="price  pt-20">
+        <div className="price  pt-20 px-4">
           <div
             style={{
               width: "max-content",

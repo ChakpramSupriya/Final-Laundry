@@ -146,7 +146,7 @@ export default function DryCleaningApply() {
           {/* content */}
           <div className="flex flex-wrap justify-between pt-2 pb-2 pr-0 pl-0 mt-2">
             {/* input-box */}
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="name"
@@ -164,7 +164,7 @@ export default function DryCleaningApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="age"
@@ -183,7 +183,7 @@ export default function DryCleaningApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="email"
@@ -201,7 +201,7 @@ export default function DryCleaningApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="phonenumber"
@@ -220,7 +220,7 @@ export default function DryCleaningApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="address"
@@ -255,7 +255,7 @@ export default function DryCleaningApply() {
                 required
               />
             </div> */}
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 for="services"
@@ -278,7 +278,7 @@ export default function DryCleaningApply() {
               </select>
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="pincode"
@@ -297,7 +297,7 @@ export default function DryCleaningApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="aadhar"
@@ -316,7 +316,7 @@ export default function DryCleaningApply() {
               />
             </div>
 
-            <div className="flex flex-wrap w-[50%] pb-4 justify-end">
+            <div className="flex flex-wrap w-full sm:w-[50%] pb-4 justify-end">
               <label
                 className="w-[95%] text-[#2f4f4f] font-bold mt-1 mb-1"
                 htmlFor="date"
