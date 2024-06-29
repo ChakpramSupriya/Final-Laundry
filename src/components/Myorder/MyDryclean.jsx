@@ -3,21 +3,23 @@ import Header from "../Header";
 import Footer from "../Footer";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
+import { toast } from "react-toastify";
+
 const MyDryClean = () => {
   const [listData, setListData] = useState();
+  const fetchData = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:3000/bookdryclean/getdrycleanbook"
+      );
+      const data = await res.json();
+      console.log(data);
+      setListData(data.bookdrycleanget);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          "http://localhost:3000/bookdryclean/getdrycleanbook"
-        );
-        const data = await res.json();
-        console.log(data);
-        setListData(data.bookdrycleanget);
-      } catch (err) {
-        console.log(err);
-      }
-    };
     fetchData();
   }, []);
 
@@ -33,8 +35,10 @@ const MyDryClean = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
-      // fetchData();
+      if (data.success) {
+        toast.success(data.message);
+        fetchData();
+      }
     } catch (err) {
       console.log(err.message);
     }
@@ -43,7 +47,7 @@ const MyDryClean = () => {
   return (
     <>
       <Header />
-      <div className="w-full max-h-fit bg-[rgb(216,217,221)] pt-24 pb-28">
+      <div className="sm:w-full max-h-fit bg-[rgb(216,217,221)] pt-24 pb-28 ">
         <h1 className="flex justify-center text-[20px] underline">
           Dry Cleaning Services
         </h1>
@@ -72,9 +76,9 @@ const MyDryClean = () => {
                   <td>{eachElement.message}</td>
                   <td>{eachElement.items}</td>
                   <td>{eachElement.productstype}</td>
-                  <td>Rs. {eachElement.amount}</td>
+                  <td>₹ {eachElement.amount}</td>
                   <td
-                    className=" flex justify-center"
+                    className="flex justify-center"
                     onClick={() => DeleteDryclean(eachElement._id)}
                   >
                     <RiDeleteBin6Line size={30} />

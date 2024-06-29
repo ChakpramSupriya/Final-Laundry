@@ -2,6 +2,7 @@ import { LogIn, LogInIcon } from "lucide-react";
 import { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function LoginRegister() {
   const navigate = useNavigate();
   const [action, setAction] = useState(true);
@@ -40,9 +41,10 @@ export default function LoginRegister() {
     console.log(resJson);
     localStorage.setItem("isLogin", JSON.stringify(resJson.success));
     if (resJson.success) {
+      toast.success(resJson.message);
       navigate("/home");
     } else {
-      alert(resJson.message);
+      toast.error(resJson.message);
     }
     setUserName("");
     setEmail("");
@@ -66,11 +68,15 @@ export default function LoginRegister() {
     });
 
     const resJson = await res.json();
-    console.log(resJson);
+    if (resJson.success) {
+      toast.success(resJson.message);
+      navigate("/");
+    } else {
+      toast.error(resJson.message);
+    }
     setUserName("");
     setEmail("");
     setPassword("");
-    navigate("/home");
   };
   return (
     <div className="bg-[url('./assets/bgr.jpg')] bg-cover bg-center h-screen flex justify-center items-center">

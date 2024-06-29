@@ -199,26 +199,6 @@ export default function Assistance_book({
               maxLength={10}
             />
           </div>
-          {/* <div className="inputs">
-            <p>District:</p>
-            <select
-              value={district}
-              onChange={handleDistrictChange}
-              style={{
-                border: "1.5px solid gray",
-                margin: "10px",
-                borderRadius: "10px",
-                width: "400px",
-                padding: "10px 20px",
-              }}
-            >
-              <option value="">Select an option</option>
-              <option value="Imphal East">Imphal East</option>
-              <option value="Imphal West">Imphal West</option>
-              <option value="Bishnupur">Bishnupur</option>
-              <option value="Thoubal">Thoubal</option>
-            </select>
-          </div> */}
 
           <div>
             <label className="text-center pl-4" for="services">
@@ -287,9 +267,9 @@ export default function Assistance_book({
             placeholder="Pick date and time"
           /> */}
 
-          <div className="inputs">
+          {/* <div className="inputs">
             <IoPersonSharp className="icon" />
-            {/* <input type="number" placeholder="Number of workers:" /> */}
+           
             <NumberInput
               className="w-90"
               placeholder="Number of workers:"
@@ -299,7 +279,7 @@ export default function Assistance_book({
               min={1}
               max={20}
             />
-          </div>
+          </div> */}
           <div>
             <label className="text-center pl-4" for="services">
               Service:
@@ -321,9 +301,9 @@ export default function Assistance_book({
           </div>
         </div>
 
-        <div className="flex w-full flex-col sm:flex-row">
+        <div className="flex w-full flex-col sm:flex-row ">
           <div className=" inputs">
-            <label className="text-center">Duration:</label>
+            <label className="">Duration:</label>
             <input
               type="number"
               className="border border-gray-400 indent-2 ml-3"
@@ -338,7 +318,7 @@ export default function Assistance_book({
             />
           </div>
           <div className=" inputs">
-            <label className="text-center">Amount:</label>
+            <label>Amount:</label>
             <input
               type="text"
               className="border border-gray-400 indent-2 ml-3"

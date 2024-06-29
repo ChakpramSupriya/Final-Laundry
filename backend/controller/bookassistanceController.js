@@ -19,7 +19,6 @@ const createBookassistance = async (req, res) => {
     });
   }
 };
-// get
 const getBookassistance = async (req, res) => {
   try {
     const bookassistanceget = await bookassistanceModel.find();

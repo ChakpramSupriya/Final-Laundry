@@ -3,22 +3,24 @@ import Header from "../Header";
 import Footer from "../Footer";
 import { useState, useEffect } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 const MyAssistance = () => {
   const [listdata, setlistdata] = useState();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          "http://localhost:3000/bookassistance/getassistancebook"
-        );
-        const data = await res.json();
-        console.log(data);
+  const fetchData = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:3000/bookassistance/getassistancebook"
+      );
+      const data = await res.json();
+      if (data.success) {
         setlistdata(data.bookassistanceget);
-      } catch (err) {
-        console.log(err);
       }
-    };
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -34,8 +36,10 @@ const MyAssistance = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
-      window.location.reload();
+      if (data.success) {
+        toast.success(data.message);
+        fetchData();
+      }
     } catch (err) {
       console.log(err.message);
     }
@@ -77,7 +81,7 @@ const MyAssistance = () => {
                   <td>{eachElement.date}</td>
                   <td>{eachElement.time}</td>
                   <td>{eachElement.duration}</td>
-                  <td>Rs. {eachElement.amount}</td>
+                  <td>₹ {eachElement.amount}</td>
                   <td
                     className=" flex justify-center"
                     onClick={() => DeleteAssistance(eachElement._id)}

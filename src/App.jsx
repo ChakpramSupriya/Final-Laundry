@@ -16,6 +16,7 @@ import Notificationoff from "./components/notification/Notificationoff";
 import { HomeComponent } from "./components/HomeComponent";
 import Dryclean_itemorder from "./components/Dryclean-itemorder/Dryclean-itemorder";
 import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ApplyNow from "./components/ApplyNow/ApplyNow";
 import LoginRegister from "./components/LoginRegister";
@@ -76,8 +77,9 @@ function App() {
         }
       );
       const jsonRes = await res.json();
-      console.log("yareey");
-      console.log(jsonRes);
+      if (jsonRes.success) {
+        toast.success(jsonRes.message);
+      }
     } catch (error) {
       console.error(error);
     }

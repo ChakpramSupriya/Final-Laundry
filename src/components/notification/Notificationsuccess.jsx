@@ -2,7 +2,30 @@ import React from "react";
 import Header from "../Header";
 import { TiTickOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 export default function Notificationsuccess({ data, assistanceamount }) {
+  const navigate = useNavigate();
+  const dataprops = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:3000/bookassistance/createassistancebook",
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      const jsonRes = await res.json();
+      if (jsonRes.success) {
+        toast.success(jsonRes.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const paymentHandler = async (e) => {
     console.log(assistanceamount);
     const currency = "INR";
@@ -46,8 +69,11 @@ export default function Notificationsuccess({ data, assistanceamount }) {
           }
         );
         const jsonRes = await validateRes.json();
-        console.log(jsonRes);
-        dataprops();
+        if (jsonRes.msg === "success") {
+          dataprops();
+
+          navigate("/mybookassistance");
+        }
       },
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
@@ -63,19 +89,6 @@ export default function Notificationsuccess({ data, assistanceamount }) {
       },
     };
 
-    const dataprops = () => {
-      console.log(data);
-      fetch("http://localhost:3000/bookassistance/createassistancebook", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "content-type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    };
-
     const rzp1 = new window.Razorpay(options);
     rzp1.on("payment.failed", (response) => {
       alert(response.error.code);
@@ -89,7 +102,6 @@ export default function Notificationsuccess({ data, assistanceamount }) {
     rzp1.open();
     e.preventDefault();
   };
-  const navigate = useNavigate();
   return (
     <>
       <Header />

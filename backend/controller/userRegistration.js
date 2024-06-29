@@ -15,7 +15,9 @@ async function registerUser(req, res) {
       email: req.body.email,
       password: hashedPassword,
     });
-    return res.status(201).json({ success: true, data });
+    return res
+      .status(201)
+      .json({ success: true, data, message: "Account created successfully" });
   } catch (error) {
     return res.status(500).json(error.message);
   }

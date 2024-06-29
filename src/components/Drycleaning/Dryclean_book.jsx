@@ -143,7 +143,7 @@ export default function Dryclean_book({
             </select>
           </div>
 
-          <div className="inputs pincode">
+          <div className="inputs pincode ">
             <p>Pincode:</p>
             <input
               type="pincode"

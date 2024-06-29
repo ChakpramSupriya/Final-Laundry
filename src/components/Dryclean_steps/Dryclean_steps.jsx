@@ -47,7 +47,7 @@ export default function Dryclean_steps() {
             <h4 className="block sm:hidden">DROP OFF</h4>
           </div>
         </div>
-        <div className="steps-order hidden sm:block">
+        <div className="steps-order ">
           <h4>PLACED ORDER</h4>
           <h4>PICK UP </h4>
           <h4>DROP OFF</h4>

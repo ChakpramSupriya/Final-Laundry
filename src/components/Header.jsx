@@ -28,7 +28,7 @@ const Header = () => {
         opened={opened}
         onClose={toggle}
         position="top"
-        height={20}
+        height={10}
         color="whitesmoke"
       >
         <div className="flex flex-col text-xl">
@@ -45,7 +45,7 @@ const Header = () => {
             Apply
           </NavLink>
           <li className="relative list-none cursor-pointer group  ">
-            <a className=" navbar text-[20px] flex  ">
+            <a href="#" className=" navbar text-[20px] flex  ">
               Mybook
               <span>
                 <IoMdArrowDropdown className=" navbar text-[20px] mt-1" />
@@ -54,13 +54,14 @@ const Header = () => {
             <div className="absolute z-[9999] hidden group-hover:block">
               <ul className="space-y-1">
                 {DropdownLink.map((data, index) => (
-                  <li>
-                    <a
-                      className="text-[14px] inline-block w-full p-1 hover:bg-white rounded-md underline"
-                      href={data.link}
+                  <li key={index}>
+                    <Link
+                      className="text-[18px] inline-block w-full p-1 hover:bg-white rounded-md underline"
+                      to={data.link}
+                      style={{ textDecoration: "none" }}
                     >
                       {data.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -68,7 +69,7 @@ const Header = () => {
           </li>
         </div>
         <NavLink to="/">
-          <FiLogOut className="navbarlogo text-[28px]" />
+          <FiLogOut className="navbarlogo text-[24px]" />
         </NavLink>
       </Drawer>
       <header className="header">
@@ -105,26 +106,27 @@ const Header = () => {
               <a className=" navbar text-[18px] flex ">
                 Mybook
                 <span>
-                  <IoMdArrowDropdown className=" navbar text-[18px] mt-1" />
+                  <IoMdArrowDropdown className=" navbar text-[20px] mt-1" />
                 </span>
               </a>
               <div className="absolute z-[9999] hidden group-hover:block">
                 <ul className="space-y-1">
                   {DropdownLink.map((data, index) => (
-                    <li>
-                      <a
-                        className="text-[14px] inline-block w-full p-1 hover:bg-white rounded-md"
-                        href={data.link}
+                    <li key={index}>
+                      <Link
+                        className="text-[18px] inline-block w-full p-1 hover:bg-white rounded-md underline"
+                        to={data.link}
+                        style={{ textDecoration: "none" }}
                       >
                         {data.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             </li>
             <NavLink to="/">
-              <FiLogOut className="navbarlogo text-[28px]" />
+              <FiLogOut className="navbarlogo text-[24px]" />
             </NavLink>
           </ul>
         </nav>

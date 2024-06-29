@@ -104,7 +104,7 @@ export default function Dryclean_itemorder({
   const paymentHandler = async (e) => {
     const currency = "INR";
     const receiptId = "qwerty";
-    dryPost();
+    // dryPost();
     const response = await fetch("http://localhost:3000/order", {
       method: "POST",
       body: JSON.stringify({
@@ -143,6 +143,11 @@ export default function Dryclean_itemorder({
           }
         );
         const jsonRes = await validateRes.json();
+        if (jsonRes.msg === "success") {
+          dryPost();
+          navigate("/mybookdryclean");
+        }
+
         console.log(jsonRes);
       },
       prefill: {

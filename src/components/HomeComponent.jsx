@@ -89,7 +89,7 @@ export function HomeComponent() {
       {/* about us */}
       <section className="services ">
         <h1 className="section_title"> ABOUT US</h1>
-        <div className="service_home">
+        <div className="service_home flex flex-col">
           <img src="/about_home.svg" alt="" />
           <div>
             <p>
